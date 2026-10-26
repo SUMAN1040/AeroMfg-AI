@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AeroMfg AI | Enterprise AIoT Intelligence for Commercial Aircraft Manufacturing</title>
+  <meta name="description" content="AeroMfg AI delivers mission-critical AIoT intelligence, sub-meter workforce proximity analytics, and AS9100 digital thread component genealogy for commercial aircraft manufacturing." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-base: #ffffff;
+      --bg-subtle: #f8fafc;
+      --bg-muted: #f1f5f9;
+      --bg-card: #ffffff;
+      
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-dark: #0f172a;
+      
+      --text-heading: #090d16;
+      --text-body: #2d3748;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+      
+      --brand-blue: #0052cc;
+      --brand-blue-hover: #0747a6;
+      --brand-blue-subtle: #ebf5ff;
+      
+      --status-emerald: #059669;
+      --status-emerald-bg: #ecfdf5;
+      --status-amber: #d97706;
+      --status-amber-bg: #fffbeb;
+      --status-red: #dc2626;
+      --status-red-bg: #fef2f2;
+      --status-cyan: #0284c7;
+      --status-cyan-bg: #f0f9ff;
+      
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px -1px rgba(0, 0, 0, 0.07);
+      --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+      
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      background: #090d16;
+      color: #94a3b8;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 6px 0;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-bar-badge {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #34d399;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 6px #10b981;
+    }
+
+    /* Site Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-heading);
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      background: #090d16;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #38bdf8;
+    }
+
+    .brand-mark svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--text-heading);
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Main Navigation */
+    .nav-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 2px;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-button {
+      background: transparent;
+      border: none;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .nav-button:hover, .nav-item:hover .nav-button {
+      background: var(--bg-muted);
+      color: var(--brand-blue);
+    }
+
+    .nav-button svg.chevron {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.15s ease;
+      color: var(--text-muted);
+    }
+
+    .nav-item:hover .nav-button svg.chevron {
+      transform: rotate(180deg);
+      color: var(--brand-blue);
+    }
+
+    /* Enterprise Mega Dropdown */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 440px;
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-modal);
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: all 0.15s ease;
+      pointer-events: none;
+      z-index: 1100;
+    }
+
+    .nav-item:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .menu-header {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .menu-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-link-card {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background 0.15s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .menu-link-card:hover {
+      background: var(--bg-subtle);
+      border-left-color: var(--brand-blue);
+    }
+
+    .menu-link-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    .menu-link-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      font-family: var(--font-sans);
+    }
+
+    .btn-primary {
+      background: var(--brand-blue);
+      color: #ffffff;
+      border-color: var(--brand-blue);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-blue-hover);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      border-color: var(--border-strong);
+      color: var(--text-heading);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-subtle);
+      border-color: var(--text-muted);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    /* Hero Section - Production Industrial Console */
+    .hero-wrap {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 48px 0 36px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+      padding: 3px 8px;
+      background: var(--brand-blue-subtle);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-sm);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero-description {
+      font-size: 14.5px;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .hero-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    /* Industrial Spec Bar */
+    .spec-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+    }
+
+    .spec-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-val {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .spec-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 2px;
+    }
+
+    /* Live Telemetry Panel (Right Hero Box) */
+    .telemetry-card {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .card-head {
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-head-title {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-body-padded {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      padding: 8px 10px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    .data-row-key {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .data-row-val {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    /* Main Digital Twin Simulator Section */
+    .section-wrap {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-wrap.alt-bg {
+      background: var(--bg-subtle);
+    }
+
+    .section-intro {
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .section-heading-sm {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .section-heading-lg {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .section-summary {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-top: 4px;
+    }
+
+    /* Simulator Workbench */
+    .sim-card {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .sim-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: #090d16;
+      color: #ffffff;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .sim-station-select {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      border-radius: var(--radius-sm);
+    }
+
+    .sim-layer-toggles {
+      display: flex;
+      gap: 6px;
+    }
+
+    .layer-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    .layer-btn.active {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .sim-layout {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      min-height: 480px;
+    }
+
+    .sim-cad-viewport {
+      background: #f8fafc;
+      padding: 20px;
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .cad-canvas-svg {
+      width: 100%;
+      height: 350px;
+    }
+
+    .cad-legend {
+      display: flex;
+      gap: 16px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      background: #ffffff;
+      padding: 8px 12px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    .sim-side-feed {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feed-header {
+      padding: 10px 14px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-heading);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .feed-logs-list {
+      padding: 12px;
+      height: 290px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+
+    .feed-entry {
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-subtle);
+      line-height: 1.4;
+    }
+
+    .feed-entry.warn {
+      background: var(--status-amber-bg);
+      border-color: #fde68a;
+      color: #92400e;
+    }
+
+    .feed-entry.danger {
+      background: var(--status-red-bg);
+      border-color: #fecaca;
+      color: #991b1b;
+    }
+
+    .feed-entry.success {
+      background: var(--status-emerald-bg);
+      border-color: #a7f3d0;
+      color: #065f46;
+    }
+
+    .feed-time {
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .inspector-box {
+      padding: 12px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-subtle);
+    }
+
+    .inspector-title {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .inspector-content {
+      font-size: 12px;
+      color: var(--text-heading);
+    }
+
+    /* Live Data Table for Digital Thread */
+    .table-card {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .enterprise-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12.5px;
+    }
+
+    .enterprise-table th {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    .enterprise-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    .enterprise-table tr:hover td {
+      background: var(--bg-subtle);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .status-pill.pass {
+      background: var(--status-emerald-bg);
+      color: var(--status-emerald);
+      border: 1px solid #a7f3d0;
+    }
+
+    .status-pill.review {
+      background: var(--status-amber-bg);
+      color: var(--status-amber);
+      border: 1px solid #fde68a;
+    }
+
+    /* Module Feature Cards Grid */
+    .module-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .module-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .module-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .module-card {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-card);
+      transition: all 0.15s ease;
+    }
+
+    .module-card:hover {
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .module-card-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .module-card-text {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .module-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .module-list li {
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .module-list li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--brand-blue);
+      font-weight: 700;
+    }
+
+    /* PSR Case Studies */
+    .case-nav-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .case-tab-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .case-tab-btn.active, .case-tab-btn:hover {
+      background: #090d16;
+      border-color: #090d16;
+      color: #ffffff;
+    }
+
+    .case-study-box {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-card);
+    }
+
+    .case-location-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-blue);
+      margin-bottom: 8px;
+    }
+
+    .case-study-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+    }
+
+    .psr-item {
+      font-size: 12.5px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .psr-item strong {
+      color: var(--text-heading);
+    }
+
+    .psr-result-badge {
+      background: var(--status-emerald-bg);
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .psr-lesson-text {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 8px;
+      border-top: 1px dashed var(--border-subtle);
+      padding-top: 8px;
+    }
+
+    /* API Explorer Section */
+    .api-container {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .api-header-tabs {
+      display: flex;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-strong);
+      padding: 0 12px;
+      overflow-x: auto;
+    }
+
+    .api-tab {
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .api-tab.active {
+      color: var(--brand-blue);
+      border-bottom-color: var(--brand-blue);
+      background: #ffffff;
+    }
+
+    .method-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .method-get { background: var(--status-emerald-bg); color: var(--status-emerald); }
+    .method-post { background: var(--brand-blue-subtle); color: var(--brand-blue); }
+
+    .api-pane-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      padding: 24px;
+      gap: 24px;
+    }
+
+    .terminal-code-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #38bdf8;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #f8fafc;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: var(--brand-blue);
+    }
+
+    /* ROI Calculator */
+    .calc-box {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+    }
+
+    .calc-row {
+      margin-bottom: 20px;
+    }
+
+    .calc-label-bar {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+
+    .calc-label-val {
+      font-family: var(--font-mono);
+      color: var(--brand-blue);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-muted);
+      border-radius: 4px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      cursor: pointer;
+    }
+
+    .calc-output-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .output-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 10px;
+    }
+
+    .output-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .output-label {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .output-val {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--status-emerald);
+    }
+
+    /* Standards Grid */
+    .standards-list-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .standard-item-box {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .std-code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand-blue);
+      white-space: nowrap;
+    }
+
+    .std-name {
+      font-size: 12px;
+      color: var(--text-body);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #090d16;
+      color: #94a3b8;
+      padding: 48px 0 24px;
+      font-size: 12.5px;
+    }
+
+    .footer-grid-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+
+    .footer-heading {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-family: var(--font-display);
+    }
+
+    .footer-links-col {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-links-col a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+
+    .footer-links-col a:hover {
+      color: #38bdf8;
+    }
+
+    .footer-bottom-row {
+      border-top: 1px solid #1e293b;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(9, 13, 22, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.15s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      width: 100%;
+      max-width: 580px;
+      box-shadow: var(--shadow-modal);
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+
+    .form-input {
+      width: 100%;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--brand-blue);
+      box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-layout, .sim-layout, .calc-box, .api-pane-layout { grid-template-columns: 1fr; }
+      .module-grid-4, .module-grid-3, .standards-list-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-list { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .module-grid-4, .module-grid-3, .module-grid-2, .standards-list-grid, .footer-grid-layout, .spec-strip { grid-template-columns: 1fr; }
+      .hero-headline { font-size: 1.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP INDUSTRIAL UTILITY BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span>AEROSPACE & DEFENSE SPECIFICATION: <b>AS9100 REV D / FAA AC 21-43</b></span>
+        <span class="top-bar-badge">Aperture Studio & GAO Heritage (20 Years in IoT)</span>
+      </div>
+      <div class="top-bar-right">
+        <span>Active Grid: <b>Puget Sound FAL-04</b></span>
+        <span class="status-indicator">
+          <span class="status-dot"></span>
+          1,482 Mesh Nodes Nominal
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="brand-group">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">AeroMfg AI</span>
+          <span class="brand-sub">Commercial Aircraft AIoT</span>
+        </div>
+      </a>
+
+      <!-- Navigation Menus -->
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-button" href="#home">Command</a>
+        </li>
+
+        <!-- Workforce -->
+        <li class="nav-item">
+          <a class="nav-button" href="#workforce">
+            Workforce Security
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="menu-header">Aircraft Workforce Security Intelligence</div>
+            <ul class="menu-links-list">
+              <li><a href="#workforce" class="menu-link-card"><span class="menu-link-title">Personnel Proximity Analytics</span><span class="menu-link-desc">Sub-meter UWB tracking around assembly robotics and test rigs</span></a></li>
+              <li><a href="#workforce" class="menu-link-card"><span class="menu-link-title">Secure Perimeter Access Logic</span><span class="menu-link-desc">Identity-centric multi-factor ESD and certification credentialing</span></a></li>
+              <li><a href="#workforce" class="menu-link-card"><span class="menu-link-title">Hazard Zone Compliance Monitoring</span><span class="menu-link-desc">Automated interlock lockout during high-voltage and pressure tests</span></a></li>
+              <li><a href="#workforce" class="menu-link-card"><span class="menu-link-title">Safety Pattern Recognition</span><span class="menu-link-desc">ML analytics optimizing technician transit flow between bays</span></a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Asset Intelligence -->
+        <li class="nav-item">
+          <a class="nav-button" href="#assets">
+            Asset Lifecycle
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="menu-header">Aircraft Asset Lifecycle Intelligence</div>
+            <ul class="menu-links-list">
+              <li><a href="#assets" class="menu-link-card"><span class="menu-link-title">Airframe & Tooling Tracking</span><span class="menu-link-desc">Continuous telemetry fusion with zero EMI interference</span></a></li>
+              <li><a href="#assets" class="menu-link-card"><span class="menu-link-title">GSE Calibration Gatekeeping</span><span class="menu-link-desc">Automated lockout for expired torque drivers and lifting fixtures</span></a></li>
+              <li><a href="#assets" class="menu-link-card"><span class="menu-link-title">Inventory Demand Predictive Modeling</span><span class="menu-link-desc">Fastener & titanium alloy lead-time buffer forecasting</span></a></li>
+              <li><a href="#assets" class="menu-link-card"><span class="menu-link-title">Component Readiness Forecasting</span><span class="menu-link-desc">Calculates real-time integration milestone probabilities</span></a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- IoT Software -->
+        <li class="nav-item">
+          <a class="nav-button" href="#software">
+            IoT Software
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="menu-header">IoT Software for Aircraft Manufacturing</div>
+            <ul class="menu-links-list">
+              <li><a href="#software" class="menu-link-card"><span class="menu-link-title">Assembly WIP Monitoring</span><span class="menu-link-desc">Event-driven status tracking through autoclaves and cleanrooms</span></a></li>
+              <li><a href="#software" class="menu-link-card"><span class="menu-link-title">Digital Thread Genealogy Mapping</span><span class="menu-link-desc">Immutable cryptographic provenance logs per serial number</span></a></li>
+              <li><a href="#software" class="menu-link-card"><span class="menu-link-title">Production Synchronization Logic</span><span class="menu-link-desc">Dynamic bottleneck alleviation across final assembly stations</span></a></li>
+              <li><a href="#software" class="menu-link-card"><span class="menu-link-title">QA Traceability Verification</span><span class="menu-link-desc">Automated build dossiers ready for FAA & defense audits</span></a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Hardware & Sensing -->
+        <li class="nav-item">
+          <a class="nav-button" href="#sensing">
+            Hardware & Sensing
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="menu-header">Aerospace IoT Sensing Technologies</div>
+            <ul class="menu-links-list">
+              <li><a href="#sensing" class="menu-link-card"><span class="menu-link-title">Industrial UHF RFID Tracking Tags</span><span class="menu-link-desc">High-temperature, non-outgassing tags for metal airframes</span></a></li>
+              <li><a href="#sensing" class="menu-link-card"><span class="menu-link-title">Precision BLE Proximity Hardware</span><span class="menu-link-desc">Low-energy beacons for mobile GSE and personnel safety</span></a></li>
+              <li><a href="#sensing" class="menu-link-card"><span class="menu-link-title">Environmental Telemetry Nodes</span><span class="menu-link-desc">ISO Class 5 cleanroom particle and pressure logging</span></a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Technical Resources -->
+        <li class="nav-item">
+          <a class="nav-button" href="#resources">
+            Resources
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="menu-header">Architecture & Case Studies</div>
+            <ul class="menu-links-list">
+              <li><a href="#case-studies" class="menu-link-card"><span class="menu-link-title">11 Enterprise Case Studies</span><span class="menu-link-desc">8 U.S. and 3 Canadian deployments in PSR format</span></a></li>
+              <li><a href="#api-specs" class="menu-link-card"><span class="menu-link-title">RESTful API Specifications</span><span class="menu-link-desc">Payload definitions for ERP/MES and PLM integration</span></a></li>
+              <li><a href="#standards" class="menu-link-card"><span class="menu-link-title">Aerospace Standards Matrix</span><span class="menu-link-desc">AS9100 Rev D, FAA AC 21-43, NIST SP 800-171</span></a></li>
+              <li><a href="#about" class="menu-link-card"><span class="menu-link-title">About AeroMfg AI</span><span class="menu-link-desc">Aperture Studio and GAO IoT engineering history</span></a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <a href="#api-specs" class="btn btn-outline btn-sm">API Docs</a>
+        <button class="btn btn-primary btn-sm" onclick="openContactModal('Technical Architecture Consultation')">
+          Request Consultation
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-wrap" id="home">
+    <div class="container">
+      <div class="hero-layout">
+        <div>
+          <div class="eyebrow-tag">Commercial Aircraft Manufacturing Intelligence Command</div>
+          <h1 class="hero-headline">
+            Precision Intelligence for Commercial Aircraft Operational Excellence
+          </h1>
+          <p class="hero-description">
+            AeroMfg AI delivers an integrated AIoT intelligence framework specifically architected for zero-failure aerospace integration. By unifying sub-meter workforce proximity geofencing, calibrated GSE tooling management, and component digital thread genealogy, the platform eliminates search waste, assembly bottlenecks, and non-conformance risks.
+          </p>
+
+          <div class="hero-btn-row">
+            <a href="#simulator" class="btn btn-primary">
+              Launch Live FAL Digital Twin
+            </a>
+            <a href="#registry" class="btn btn-outline">
+              Inspect Serialized Asset Registry
+            </a>
+            <a href="#case-studies" class="btn btn-outline">
+              Review PSR Case Studies
+            </a>
+          </div>
+
+          <div class="spec-strip">
+            <div class="spec-col">
+              <span class="spec-val">14,820</span>
+              <span class="spec-label">Tracked Airframe Assets</span>
+            </div>
+            <div class="spec-col">
+              <span class="spec-val">&lt; 15 ms</span>
+              <span class="spec-label">UWB Edge Latency</span>
+            </div>
+            <div class="spec-col">
+              <span class="spec-val">100.0%</span>
+              <span class="spec-label">AS9100 Audit Verification</span>
+            </div>
+            <div class="spec-col">
+              <span class="spec-val">0.00%</span>
+              <span class="spec-label">Cleanroom Excursion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry HUD Card -->
+        <div class="telemetry-card">
+          <div class="card-head">
+            <span class="card-head-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#0052cc"><circle cx="12" cy="12" r="10"/></svg>
+              FAL Station 40: Main Deck Assembly
+            </span>
+            <span class="status-pill pass">CONNECTED (mTLS 1.3)</span>
+          </div>
+
+          <div class="card-body-padded">
+            <div class="data-row">
+              <span class="data-row-key">ISO Class 5 Particle Count</span>
+              <span class="data-row-val" style="color: var(--status-emerald);">0.02 pt/ft³ (Nominal)</span>
+            </div>
+            <div class="data-row">
+              <span class="data-row-key">Calibrated GSE in Station</span>
+              <span class="data-row-val">34 / 34 Validated (AS9100)</span>
+            </div>
+            <div class="data-row">
+              <span class="data-row-key">Cobot Riveting Safe Margin</span>
+              <span class="data-row-val">1.85 m (Sub-meter Lock)</span>
+            </div>
+            <div class="data-row">
+              <span class="data-row-key">ESD Apparel Status</span>
+              <span class="data-row-val" style="color: var(--status-emerald);">100% Compliant</span>
+            </div>
+
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 12px; border-radius: var(--radius-sm); font-size: 12px;">
+              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--brand-blue); margin-bottom: 2px;">
+                PREDICTIVE PRODUCTION SIGNAL
+              </div>
+              Wing spar mating scheduled for <b>21:40 UTC</b>. Tooling kit #GSE-8820 pre-positioned at Station B with zero search lag.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL TWIN SIMULATOR -->
+  <section class="section-wrap" id="simulator">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Real-Time Operational Visualization</div>
+          <h2 class="section-heading-lg">Final Assembly Line (FAL) Digital Twin</h2>
+          <p class="section-summary">
+            Interactive plant floor simulation showing live UWB technician positioning, smart GSE tool gatekeeping, and cleanroom particulate boundaries across the airframe assembly sequence.
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-outline btn-sm" onclick="triggerSimEvent('hazard_breach')">
+            Simulate Hazard Proximity Alert
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="triggerSimEvent('gse_scan')">
+            Simulate Smart Torque Verification
+          </button>
+        </div>
+      </div>
+
+      <div class="sim-card">
+        <div class="sim-header-bar">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700;">PLANT VIEW:</span>
+            <select class="sim-station-select">
+              <option>Seattle FAL Hangar 3 - Commercial Widebody Line</option>
+              <option>Charleston High-Bay - Fuselage Section 47/48</option>
+              <option>Mirabel Aerostructures - Wing Box Assembly</option>
+            </select>
+          </div>
+
+          <div class="sim-layer-toggles">
+            <button class="layer-btn active" onclick="setSimView('all')">All Layers</button>
+            <button class="layer-btn" onclick="setSimView('workforce')">Workforce (UWB)</button>
+            <button class="layer-btn" onclick="setSimView('gse')">GSE Tools</button>
+            <button class="layer-btn" onclick="setSimView('cleanroom')">Cleanroom Zones</button>
+          </div>
+        </div>
+
+        <div class="sim-layout">
+          <!-- CAD Floor Map Viewport -->
+          <div class="sim-cad-viewport">
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">
+              <span>COORDINATE MESH: HIGH-BAY BAY-01</span>
+              <span>UWB REFRESH: 100 Hz | ERROR: &lt; 8 cm</span>
+            </div>
+
+            <!-- SVG Schematic of Aircraft FAL -->
+            <svg class="cad-canvas-svg" viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="gridPattern" width="25" height="25" patternUnits="userSpaceOnUse">
+                  <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#gridPattern)" />
+
+              <!-- Cleanroom Zone -->
+              <rect x="30" y="30" width="160" height="120" rx="4" fill="rgba(5, 150, 105, 0.05)" stroke="#059669" stroke-width="1.2"/>
+              <text x="38" y="48" fill="#059669" font-family="JetBrains Mono" font-size="9" font-weight="700">ISO-5 COMPOSITE CLEANROOM</text>
+
+              <!-- Wing Box Restricted Zone -->
+              <rect x="220" y="25" width="260" height="270" rx="6" fill="rgba(0, 82, 204, 0.04)" stroke="#0052cc" stroke-width="1.2" stroke-dasharray="4 4"/>
+              <text x="228" y="42" fill="#0052cc" font-family="JetBrains Mono" font-size="9" font-weight="700">ZONE 1: WING BOX INTEGRATION</text>
+
+              <!-- High Voltage Avionics Test Cell -->
+              <rect x="510" y="30" width="160" height="120" rx="4" fill="rgba(220, 38, 38, 0.05)" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <text x="518" y="48" fill="#dc2626" font-family="JetBrains Mono" font-size="9" font-weight="700">HIGH-VOLTAGE AVIONICS BAY</text>
+
+              <!-- Commercial Jet Outline -->
+              <g stroke="#0f172a" stroke-width="1.6" fill="rgba(241, 245, 249, 0.8)">
+                <ellipse cx="350" cy="160" rx="180" ry="22"/>
+                <polygon points="320,150 250,50 290,50 370,150"/>
+                <polygon points="320,170 250,270 290,270 370,170"/>
+                <polygon points="505,155 525,120 535,120 520,155"/>
+                <polygon points="505,165 525,200 535,200 520,165"/>
+              </g>
+
+              <!-- Interactive Node: Technician -->
+              <g id="nodeTech" class="sensor-node-dot" onclick="showNodeDetails('Technician #408 (Lead Systems Assembler)', 'UWB Coords: [X: 340.2, Y: 110.8] | Clearance: Tier-3 Avionics | ESD Certified: PASSED | Shift: Day')">
+                <circle cx="340" cy="110" r="7" fill="#0052cc" />
+                <circle cx="340" cy="110" r="14" fill="none" stroke="#0052cc" stroke-width="1.5" opacity="0.6">
+                  <animate attributeName="r" values="7;16" dur="2s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.8;0" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <text x="352" y="114" fill="#090d16" font-family="JetBrains Mono" font-size="9" font-weight="700">TECH-408 [UWB]</text>
+              </g>
+
+              <!-- Interactive Node: GSE Torque Tool -->
+              <g id="nodeTool" class="sensor-node-dot" onclick="showNodeDetails('Smart Torque Driver #TRQ-99', 'Tool ID: BAC-TRQ-99 | Last Calibration: 2026-09-15 | Expiry: 18 days | Target Torque: 52.4 Nm | Status: IN_TOLERANCE')">
+                <rect x="270" y="175" width="10" height="10" fill="#d97706" rx="2"/>
+                <text x="285" y="184" fill="#92400e" font-family="JetBrains Mono" font-size="9" font-weight="700">TRQ-99 [GSE-BLE]</text>
+              </g>
+
+              <!-- Interactive Node: RFID Reader Array -->
+              <g id="nodeRFID" class="sensor-node-dot" onclick="showNodeDetails('RFID Array Reader #GTW-02', 'Model: AeroGate-915 | Frequency: 902-928 MHz | Polarization: Circular | Reads: 4,120 tags/sec | IP67')">
+                <polygon points="100,105 108,120 92,120" fill="#059669" />
+                <text x="114" y="116" fill="#065f46" font-family="JetBrains Mono" font-size="9" font-weight="700">GATEWAY-02 [UHF]</text>
+              </g>
+
+              <!-- Cobot Cell -->
+              <circle cx="380" cy="220" r="16" fill="rgba(220, 38, 38, 0.12)" stroke="#dc2626" stroke-width="1"/>
+              <circle cx="380" cy="220" r="4" fill="#dc2626"/>
+              <text x="402" y="224" fill="#991b1b" font-family="JetBrains Mono" font-size="9" font-weight="700">COBOT RIVETER 04B [ACTIVE]</text>
+            </svg>
+
+            <div class="cad-legend">
+              <span>● <b style="color: #0052cc;">Blue:</b> Personnel (UWB Wearable)</span>
+              <span>■ <b style="color: #d97706;">Amber:</b> Calibrated Tooling (GSE)</span>
+              <span>▲ <b style="color: #059669;">Green:</b> RFID Gateway</span>
+              <span>◎ <b style="color: #dc2626;">Red:</b> Safety Geofence Envelope</span>
+            </div>
+          </div>
+
+          <!-- Real-Time Event Feed & Inspection Box -->
+          <div class="sim-side-feed">
+            <div class="feed-header">
+              <span>REAL-TIME AIoT EVENT BUS</span>
+              <span class="status-pill pass">LIVE</span>
+            </div>
+            <div class="feed-logs-list" id="eventLogBox">
+              <div class="feed-entry success">
+                <span class="feed-time">20:21:02</span> [RFID] Fastener Lot #TI-64-884 verified against AS9100 Material Test Report. Cryptographic hash created.
+              </div>
+              <div class="feed-entry">
+                <span class="feed-time">20:21:08</span> [UWB] Tech-408 entered Wing Box Station B. Dual-factor ESD credentialing verified.
+              </div>
+              <div class="feed-entry">
+                <span class="feed-time">20:21:12</span> [GSE] Smart Torque Driver #TRQ-99 paired with operator. Calibration certification valid.
+              </div>
+              <div class="feed-entry">
+                <span class="feed-time">20:21:19</span> [ENV] Cleanroom ISO-5 pressure differential +18.4 Pa (Nominal).
+              </div>
+            </div>
+
+            <div class="inspector-box">
+              <div class="inspector-title">Inspected Entity Details</div>
+              <div class="inspector-content" id="selectedNodeInfo">
+                Click any sensor node on the CAD floor map to inspect live parameters.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERIALIZED ASSET REGISTRY & DIGITAL THREAD TABLE -->
+  <section class="section-wrap alt-bg" id="registry">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Configuration Control & Genealogy</div>
+          <h2 class="section-heading-lg">Live Serialized Airframe Component Registry</h2>
+          <p class="section-summary">
+            Immutable tracking linking raw titanium alloy billets, composite plies, and calibrated assembly tooling to the aircraft's as-built digital record.
+          </p>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <table class="enterprise-table">
+          <thead>
+            <tr>
+              <th>Component UUID / Serial</th>
+              <th>Part Name & Description</th>
+              <th>Hardware Tag</th>
+              <th>Current Station</th>
+              <th>AS9100 / FAA Status</th>
+              <th>Calibration / MTR Ref</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>CMP-AF-TIT-09882</code></td>
+              <td><b>Wing Spar Titanium Main Cap</b></td>
+              <td>UHF RFID (AeroTag-915)</td>
+              <td>Station 40 (Wing Box Join)</td>
+              <td><span class="status-pill pass">FAA AC 21-43 VERIFIED</span></td>
+              <td><code>MTR-AL-HEAT-4482</code></td>
+              <td><button class="btn btn-outline btn-sm" onclick="inspectAssetModal('Wing Spar Titanium Main Cap', 'CMP-AF-TIT-09882')">Genealogy</button></td>
+            </tr>
+            <tr>
+              <td><code>CMP-FUS-FRM-4410</code></td>
+              <td><b>Fuselage Frame Section 44</b></td>
+              <td>BLE Beacon (AeroPulse-200)</td>
+              <td>Station 42 (Fuselage Splice)</td>
+              <td><span class="status-pill pass">AS9100 VERIFIED</span></td>
+              <td><code>CERT-QA-88210</code></td>
+              <td><button class="btn btn-outline btn-sm" onclick="inspectAssetModal('Fuselage Frame Section 44', 'CMP-FUS-FRM-4410')">Genealogy</button></td>
+            </tr>
+            <tr>
+              <td><code>GSE-TRQ-DRV-0099</code></td>
+              <td><b>Digital Torque Driver 50Nm</b></td>
+              <td>Active BLE (GSE-Smart)</td>
+              <td>Station 40 (Wing Box Join)</td>
+              <td><span class="status-pill pass">CALIBRATED (18d remaining)</span></td>
+              <td><code>NIST-CAL-2026-99</code></td>
+              <td><button class="btn btn-outline btn-sm" onclick="inspectAssetModal('Digital Torque Driver 50Nm', 'GSE-TRQ-DRV-0099')">Genealogy</button></td>
+            </tr>
+            <tr>
+              <td><code>CMP-RAD-CMP-0120</code></td>
+              <td><b>Radome Honeycomb Core</b></td>
+              <td>UHF RFID (Cleanroom Tag)</td>
+              <td>Cleanroom Bay 2 (Curing)</td>
+              <td><span class="status-pill pass">ISO-5 COMPLIANT</span></td>
+              <td><code>AUTOCLAVE-LOG-902</code></td>
+              <td><button class="btn btn-outline btn-sm" onclick="inspectAssetModal('Radome Honeycomb Core', 'CMP-RAD-CMP-0120')">Genealogy</button></td>
+            </tr>
+            <tr>
+              <td><code>CMP-AVN-MCU-0041</code></td>
+              <td><b>Flight Control Mission Computer</b></td>
+              <td>Active BLE + Telemetry</td>
+              <td>Avionics Test Bay</td>
+              <td><span class="status-pill pass">DO-178C / DO-254</span></td>
+              <td><code>SW-VER-4.11.2</code></td>
+              <td><button class="btn btn-outline btn-sm" onclick="inspectAssetModal('Flight Control Mission Computer', 'CMP-AVN-MCU-0041')">Genealogy</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFORCE SECURITY INTELLIGENCE (Parent Menu 2) -->
+  <section class="section-wrap" id="workforce">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Cognitive Safety & Access Control</div>
+          <h2 class="section-heading-lg">Aircraft Workforce Security Intelligence</h2>
+          <p class="section-summary">
+            Sub-meter positioning analytics and dynamic geofencing engineered to protect technicians and sensitive airframes during high-rate assembly operations.
+          </p>
+        </div>
+      </div>
+
+      <div class="module-grid-4">
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Personnel Proximity Analytics</h3>
+            <p class="module-card-text">
+              Utilizes ultra-wideband (UWB) trilateration on ruggedized wearables to maintain sub-meter positioning around automated riveting cobots and fuselage jigs.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Dynamic virtual buffers around flight surfaces</li>
+            <li>Haptic alerts prevent accidental airframe collisions</li>
+            <li>Immune to metallic multi-path signal distortion</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Secure Perimeter Access Logic</h3>
+            <p class="module-card-text">
+              Identity-centric multi-factor access control linking RFID/BLE credentials with active training compliance databases and ESD footwear verification.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Automatic verification of ESD-safe apparel and gear</li>
+            <li>Conditional access tied to active assembly phase</li>
+            <li>Seamless integration with SAP and HR databases</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Hazard Zone Compliance</h3>
+            <p class="module-card-text">
+              Automated auditing engine correlating workforce location with high-voltage avionics test activation, toxic sealant curing, and pressure lines.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Automatic safety interlocks shut down active rigs</li>
+            <li>Dwell-time tracking for toxic sealant exposure</li>
+            <li>Immutable audit trails for AS9100 regulatory reviews</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Safety Pattern Recognition</h3>
+            <p class="module-card-text">
+              Machine learning models analyze movement telemetry to uncover transit congestion bottlenecks and optimize spatial layout between cleanroom bays.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Identifies recurring technician transit bottlenecks</li>
+            <li>Optimizes tool cart and fastener bin placement</li>
+            <li>Derived from 20 years of industrial IoT benchmark data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSET LIFECYCLE INTELLIGENCE (Parent Menu 3) -->
+  <section class="section-wrap alt-bg" id="assets">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Lifecycle & Predictive Models</div>
+          <h2 class="section-heading-lg">Aircraft Asset Lifecycle Intelligence</h2>
+          <p class="section-summary">
+            Persistent tracking, automated GSE tooling recalibration gatekeeping, and predictive demand modeling for aerospace materials.
+          </p>
+        </div>
+      </div>
+
+      <div class="module-grid-3">
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Airframe Hardware Tracking</h3>
+            <p class="module-card-text">
+              End-to-end telemetry fusion correlating passive UHF RFID and active BLE tags with vibration, temperature, and humidity sensors throughout manufacturing and staging.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Zero electromagnetic interference (EMI) design</li>
+            <li>Real-time excursion alerts when environmental limits breach</li>
+            <li>Persistent digital thread for AS9100 Rev D conformity</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">GSE Tooling Calibration Intelligence</h3>
+            <p class="module-card-text">
+              Automated sensor-linked tracking of ground support equipment usage hours, torque cycle counts, and calibration deadlines to eliminate expired tools on the line.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Automatic checkout lockout for expired certifications</li>
+            <li>Embedded piezoelectric vibration and torque sensors</li>
+            <li>Auditable digital calibration history per tool serial number</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Inventory Demand Predictive Modeling</h3>
+            <p class="module-card-text">
+              Advanced statistical analysis of aerospace fastener and raw composite consumption rates, dynamically adjusting procurement signals for upcoming assembly phases.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Accounts for long-lead titanium alloys and avionics</li>
+            <li>Prevents production stalls without bloating WIP inventory</li>
+            <li>Real-time synchronization with ERP bill of materials (BOM)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IOT SOFTWARE & TRACEABILITY (Parent Menu 4) -->
+  <section class="section-wrap" id="software">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Digital Connective Tissue</div>
+          <h2 class="section-heading-lg">IoT Software for Commercial Aircraft Manufacturing</h2>
+          <p class="section-summary">
+            Digitize every stage of assembly with real-time Work-in-Progress tracking, cryptographic component genealogy, and automated AS9100 quality dossiers.
+          </p>
+        </div>
+      </div>
+
+      <div class="module-grid-2">
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Assembly Work-In-Progress (WIP) Tracking</h3>
+            <p class="module-card-text">
+              Replaces manual paper logbooks and disconnected spreadsheets with event-driven IoT status updates as sub-assemblies move through autoclaves, composite curing, and riveting cells.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Automatic gatekeeping as parts transition cleanrooms</li>
+            <li>Live dashboard visibility for plant supervisors</li>
+            <li>Instant milestone completion logging</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Digital Thread & Component Genealogy</h3>
+            <p class="module-card-text">
+              Captures an immutable record of every touchpoint, technician badge ID, tool calibration log, and environmental exposure history from raw billet to aircraft delivery.
+            </p>
+          </div>
+          <ul class="module-list">
+            <li>Correlates Material Test Reports (MTRs) with serial numbers</li>
+            <li>Facilitates instant root-cause analysis for non-conformances</li>
+            <li>100% auditable build dossiers ready for FAA & defense inspectors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SENSING & HARDWARE (Parent Menu 5) -->
+  <section class="section-wrap alt-bg" id="sensing">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Physical Hardware Layer</div>
+          <h2 class="section-heading-lg">Aerospace IoT Sensing Technologies</h2>
+          <p class="section-summary">
+            Ruggedized, EMI-shielded physical sensors certified for vacuum chambers, high-vibration engine cells, and composite curing autoclaves.
+          </p>
+        </div>
+      </div>
+
+      <div class="module-grid-4">
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">UHF RFID Nodes</h3>
+            <p class="module-card-text">High-durability, non-outgassing tags engineered for dense metallic airframe reflection environments.</p>
+          </div>
+          <ul class="module-list">
+            <li>NIST-traceable calibration</li>
+            <li>Circular polarized detection</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">BLE Beacons & Mesh</h3>
+            <p class="module-card-text">Low-energy proximity hardware providing real-time location without GNC avionic radio interference.</p>
+          </div>
+          <ul class="module-list">
+            <li>Chemical-resistant casing</li>
+            <li>Multi-year battery longevity</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Telemetry Gateways</h3>
+            <p class="module-card-text">Industrial fieldbus and wireless interfaces transmitting AES-256 encrypted operational feeds.</p>
+          </div>
+          <ul class="module-list">
+            <li>Edge computing pre-processing</li>
+            <li>Redundant failover channels</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <h3 class="module-card-title">Environmental Units</h3>
+            <p class="module-card-text">High-frequency logging of ISO cleanroom particulate counts, thermal gradients, and humidity.</p>
+          </div>
+          <ul class="module-list">
+            <li>LoRaWAN & mesh Wi-Fi link</li>
+            <li>Onboard anti-data-loss buffer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 PSR CASE STUDIES (Parent Menu 7) -->
+  <section class="section-wrap" id="case-studies">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Verified Operational Snapshots</div>
+          <h2 class="section-heading-lg">11 Case Studies & Performance Benchmarks</h2>
+          <p class="section-summary">
+            Real-world aerospace deployments across the United States and Canada documented under the Problem-Solution-Result (PSR) framework.
+          </p>
+        </div>
+      </div>
+
+      <div class="case-nav-tabs">
+        <button class="case-tab-btn active" onclick="filterCaseStudies('all')">All Deployments (11)</button>
+        <button class="case-tab-btn" onclick="filterCaseStudies('us')">United States (8)</button>
+        <button class="case-tab-btn" onclick="filterCaseStudies('ca')">Canada (3)</button>
+        <button class="case-tab-btn" onclick="filterCaseStudies('workforce')">Workforce Safety</button>
+        <button class="case-tab-btn" onclick="filterCaseStudies('asset')">Asset & GSE</button>
+        <button class="case-tab-btn" onclick="filterCaseStudies('trace')">Digital Thread</button>
+      </div>
+
+      <div class="module-grid-3" id="caseStudiesContainer">
+        <!-- 1. California -->
+        <div class="case-study-box" data-country="us" data-tag="asset">
+          <div>
+            <div class="case-location-tag">Sunnyvale, California | SIF High-Bay Logistics</div>
+            <h4 class="case-study-title">High-Bay Assembly Facility Logistics</h4>
+            <div class="psr-item"><strong>Problem:</strong> Frequent production delays occurred due to misaligned staging of sub-assemblies and GSE within high-bay integration facilities.</div>
+            <div class="psr-item"><strong>Solution:</strong> We deployed UWB-based tracking nodes and mapped internal logistical workflows to automate status logging as assemblies transitioned stations.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Payload integration throughput increased by 30%, eliminating manual search delays.</div>
+            <div class="psr-lesson-text">Lesson: Automated tracking of GSE is just as critical to the critical path as the flight payload itself.</div>
+          </div>
+        </div>
+
+        <!-- 2. Florida -->
+        <div class="case-study-box" data-country="us" data-tag="asset">
+          <div>
+            <div class="case-location-tag">Melbourne, Florida | GSE Control</div>
+            <h4 class="case-study-title">Ground Support & Tooling Diagnostics</h4>
+            <div class="psr-item"><strong>Problem:</strong> Intermittent tool misplacement in legacy assembly tooling caused holds during tight delivery windows.</div>
+            <div class="psr-item"><strong>Solution:</strong> We retrofitted legacy tool systems with industrial-grade telemetry units and real-time AI threshold dashboards.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Tool search times were reduced by 85%, and annual asset shrinkage was eliminated entirely.</div>
+            <div class="psr-lesson-text">Lesson: Real-time diagnostics of ground-side hardware are vital for mitigating operational risk.</div>
+          </div>
+        </div>
+
+        <!-- 3. Colorado -->
+        <div class="case-study-box" data-country="us" data-tag="trace">
+          <div>
+            <div class="case-location-tag">Denver, Colorado | Cleanroom Traceability</div>
+            <h4 class="case-study-title">Optic-Sensor Cleanroom Traceability</h4>
+            <div class="psr-item"><strong>Problem:</strong> Research-focused team struggled to prove continuous contamination compliance during optic-sensor assembly.</div>
+            <div class="psr-item"><strong>Solution:</strong> We deployed our environmental traceability system, correlating technician badge entry with live particulate counts.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Post-assembly contamination incidents eliminated; audit preparation time reduced by 70%.</div>
+            <div class="psr-lesson-text">Lesson: Correlating environmental data with hardware provenance is mandatory for high-fidelity control.</div>
+          </div>
+        </div>
+
+        <!-- 4. Alabama -->
+        <div class="case-study-box" data-country="us" data-tag="asset">
+          <div>
+            <div class="case-location-tag">Huntsville, Alabama | Supply Chain</div>
+            <h4 class="case-study-title">Defense Component Supply Chain Optimization</h4>
+            <div class="psr-item"><strong>Problem:</strong> Supply bottlenecks occurred from delayed shipments of radiation-hardened parts from overseas partners.</div>
+            <div class="psr-item"><strong>Solution:</strong> We installed telemetry gateways at partner docks linked to AI demand models to predict delays dynamically.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Production stall-time due to material shortages decreased by 45%.</div>
+            <div class="psr-lesson-text">Lesson: Visibility into the Tier-2 supplier network is essential for high-velocity aerospace integration.</div>
+          </div>
+        </div>
+
+        <!-- 5. Texas -->
+        <div class="case-study-box" data-country="us" data-tag="asset">
+          <div>
+            <div class="case-location-tag">Houston, Texas | Tooling Lifecycle</div>
+            <h4 class="case-study-title">Lift-and-Rotate GSE Calibration Intelligence</h4>
+            <div class="psr-item"><strong>Problem:</strong> Lack of calibration visibility on specialized lift GSE risked using expired tools on multi-million dollar stages.</div>
+            <div class="psr-item"><strong>Solution:</strong> We implemented RFID-based lifecycle intelligence with automated calibration gatekeeping at tool checkout.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Tool calibration audit findings reduced to zero; GSE maintenance efficiency improved by 35%.</div>
+            <div class="psr-lesson-text">Lesson: Automated gatekeeping is the only reliable way to manage compliance in high-volume environments.</div>
+          </div>
+        </div>
+
+        <!-- 6. Washington -->
+        <div class="case-study-box" data-country="us" data-tag="trace">
+          <div>
+            <div class="case-location-tag">Seattle, Washington | Digital Thread</div>
+            <h4 class="case-study-title">Airframe Structural Fastener Genealogy</h4>
+            <div class="psr-item"><strong>Problem:</strong> Manual documentation of thousands of airframe structural fasteners was error-prone and labor-intensive.</div>
+            <div class="psr-item"><strong>Solution:</strong> We deployed digital thread software capturing technician ID, smart tool calibration, and torque verification per fastener.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Fastener non-conformance reports eliminated; build dossier compilation time cut by 80%.</div>
+            <div class="psr-lesson-text">Lesson: Digital capture of torque data during installation is the best way to ensure structural integrity.</div>
+          </div>
+        </div>
+
+        <!-- 7. Arizona -->
+        <div class="case-study-box" data-country="us" data-tag="workforce">
+          <div>
+            <div class="case-location-tag">Tucson, Arizona | Hazard Zone</div>
+            <h4 class="case-study-title">High-Voltage RF Test Chamber Monitoring</h4>
+            <div class="psr-item"><strong>Problem:</strong> Risk of personnel inadvertently entering high-voltage radio-frequency test chambers while active.</div>
+            <div class="psr-item"><strong>Solution:</strong> We integrated UWB geofencing with the chamber interlock system to trigger automatic alarms and shutdowns upon proximity.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Personnel hazard exposures completely eliminated; facility achieved 100% safety compliance.</div>
+            <div class="psr-lesson-text">Lesson: Automatic safety interlock integration is mandatory for high-risk environmental testing.</div>
+          </div>
+        </div>
+
+        <!-- 8. Virginia -->
+        <div class="case-study-box" data-country="us" data-tag="asset">
+          <div>
+            <div class="case-location-tag">Arlington, Virginia | Global Transit</div>
+            <h4 class="case-study-title">Multi-Continent Sub-Assembly Transit Visibility</h4>
+            <div class="psr-item"><strong>Problem:</strong> Coordinating the global distribution of flight sub-assemblies across three continents caused tracking blindness.</div>
+            <div class="psr-item"><strong>Solution:</strong> We deployed global satellite-telemetry IoT sensors on shipping crates with shock and vibration monitoring.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Transit-related hardware loss eliminated; payload delivery predictability increased by 55%.</div>
+            <div class="psr-lesson-text">Lesson: Real-time status visibility across international boundaries is critical for multi-site programs.</div>
+          </div>
+        </div>
+
+        <!-- 9. Ontario, Canada -->
+        <div class="case-study-box" data-country="ca" data-tag="trace">
+          <div>
+            <div class="case-location-tag">Ottawa, Ontario | Cleanroom Compliance</div>
+            <h4 class="case-study-title">Cleanroom Environment Traceability</h4>
+            <div class="psr-item"><strong>Problem:</strong> Contamination record-keeping for multi-payload assemblies required heavy manual compliance overhead.</div>
+            <div class="psr-item"><strong>Solution:</strong> We combined BLE personnel tracking with environmental sensors to alert when uncertified tools or staff entered bays.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Cleanroom contamination events reduced by 40%; traceability reporting became 100% automated.</div>
+            <div class="psr-lesson-text">Lesson: Automated pre-entry verification is a critical component of contamination control strategies.</div>
+          </div>
+        </div>
+
+        <!-- 10. Quebec, Canada -->
+        <div class="case-study-box" data-country="ca" data-tag="asset">
+          <div>
+            <div class="case-location-tag">Montreal, Quebec | Inventory Modeling</div>
+            <h4 class="case-study-title">Precision Avionics Demand Modeling</h4>
+            <div class="psr-item"><strong>Problem:</strong> Fluctuating demand for specialized avionics components led to high storage holding costs and part shortages.</div>
+            <div class="psr-item"><strong>Solution:</strong> We linked shop-floor IoT consumption signals directly to our predictive replenishment modeling engine.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Inventory holding costs reduced by 25%; production-stall incidents cut in half.</div>
+            <div class="psr-lesson-text">Lesson: Real-time production visibility is the most reliable driver for accurate inventory planning.</div>
+          </div>
+        </div>
+
+        <!-- 11. British Columbia, Canada -->
+        <div class="case-study-box" data-country="ca" data-tag="workforce">
+          <div>
+            <div class="case-location-tag">Vancouver, British Columbia | Test Safety</div>
+            <h4 class="case-study-title">High-Pressure Structural Test Frame Geofencing</h4>
+            <div class="psr-item"><strong>Problem:</strong> Technician movement around high-power vibration tables and pressure test frames created safety exposure risks.</div>
+            <div class="psr-item"><strong>Solution:</strong> We implemented BLE wearable safety geofences that triggered automated status indicators for the testing operators.</div>
+          </div>
+          <div>
+            <div class="psr-result-badge">Result: Personnel exposure events eliminated; safety-related testing interruptions decreased by 30%.</div>
+            <div class="psr-lesson-text">Lesson: Clear visualization of safety buffers significantly improves testing operational discipline.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API ARCHITECTURE (Parent Menu 7) -->
+  <section class="section-wrap alt-bg" id="api-specs">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Enterprise Interoperability</div>
+          <h2 class="section-heading-lg">RESTful API & Telemetry Webhook Specifications</h2>
+          <p class="section-summary">
+            Enterprise data contract specifications for bidirectional synchronization with SAP, Siemens Teamcenter, Dassault DELMIA, and internal MES engines.
+          </p>
+        </div>
+      </div>
+
+      <div class="api-container">
+        <div class="api-header-tabs">
+          <div class="api-tab active" onclick="switchApiTab('geofence')">
+            <span class="method-pill method-post">POST</span> /api/v1/geofence/proximity-alert
+          </div>
+          <div class="api-tab" onclick="switchApiTab('genealogy')">
+            <span class="method-pill method-get">GET</span> /api/v1/digital-thread/{component_uuid}
+          </div>
+          <div class="api-tab" onclick="switchApiTab('gse')">
+            <span class="method-pill method-get">GET</span> /api/v1/gse/calibration-status
+          </div>
+        </div>
+
+        <div class="api-pane-layout">
+          <div>
+            <h3 class="module-card-title" id="apiDocTitle">Real-Time Proximity Alert Webhook</h3>
+            <p class="module-card-text" id="apiDocDesc">
+              Dispatches automated webhook payloads to PLC emergency brakes and wearable haptic bands whenever technician UWB coordinates breach designated robotic envelopes.
+            </p>
+
+            <div style="font-size: 12.5px; color: var(--text-body); margin-bottom: 16px; line-height: 1.6;">
+              <b>Protocol:</b> mTLS 1.3 with OAuth 2.0 Bearer JWT<br/>
+              <b>Latency Guarantee:</b> &lt; 15 ms end-to-end edge processing<br/>
+              <b>Audit Trail:</b> Cryptographic hash appended to AS9100 build log
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <span class="status-pill pass">AS9100 COMPLIANT</span>
+              <span class="status-pill" style="background: var(--brand-blue-subtle); color: var(--brand-blue); border: 1px solid #bfdbfe;">JSON SCHEMA 2026</span>
+            </div>
+          </div>
+
+          <div class="terminal-code-box">
+            <button class="copy-btn" onclick="copyCodeSnippet()">Copy Payload</button>
+            <pre id="apiCodeSnippet"><code>{
+  "event_id": "EVT-882910-UWB",
+  "timestamp": "2026-10-09T20:21:04.182Z",
+  "zone_id": "ZONE-FAL-WINGBOX-01",
+  "entity": {
+    "badge_id": "TECH-408",
+    "clearance_level": "TIER-3-AVIONICS",
+    "esd_safe": true,
+    "uwb_coords": { "x": 340.2, "y": 110.8, "z": 1.4 }
+  },
+  "proximity_breach": {
+    "target": "COBOT-RIVETER-04B",
+    "margin_meters": 0.85,
+    "threshold_meters": 1.20,
+    "action_triggered": "DYNAMIC_SPEED_REDUCTION"
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGULATORY STANDARDS & ECOSYSTEM -->
+  <section class="section-wrap" id="standards">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-heading-sm">Aerospace Governance</div>
+          <h2 class="section-heading-lg">Applicable Standards & Compliance Matrix</h2>
+          <p class="section-summary">
+            AeroMfg AI hardware, firmware, and telemetry pipelines strictly comply with international aerospace quality, electromagnetic, and cybersecurity frameworks.
+          </p>
+        </div>
+      </div>
+
+      <div class="standards-list-grid">
+        <div class="standard-item-box">
+          <span class="std-code">AS9100 Rev D</span>
+          <span class="std-name">Quality Management Systems for Aviation, Space & Defense</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">FAA AC 21-43</span>
+          <span class="std-name">Production Under 14 CFR Part 21 Subpart F, G, K, O</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">NIST SP 800-171</span>
+          <span class="std-name">Protecting Controlled Unclassified Information (CUI)</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">ISO 27001</span>
+          <span class="std-name">Enterprise Information Security Management</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">ANSI/ESD S20.20</span>
+          <span class="std-name">Electrostatic Discharge Protection for Flight Parts</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">ITAR & EAR</span>
+          <span class="std-name">International Traffic in Arms & Export Control</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">FCC Part 15</span>
+          <span class="std-name">Radio Frequency Devices EMI Non-Interference</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">ISED Canada RSS-Gen</span>
+          <span class="std-name">Radio Apparatus Compliance & Wireless Verification</span>
+        </div>
+        <div class="standard-item-box">
+          <span class="std-code">CSA Z1000</span>
+          <span class="std-name">Occupational Health & Safety Management</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 36px; padding: 18px 24px; background: var(--bg-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <span style="font-size: 11px; font-family: var(--font-mono); font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+          Compatible with Engineering Architectures & Primes:
+        </span>
+        <div style="display: flex; gap: 16px; font-size: 12.5px; font-weight: 600; color: var(--text-heading); flex-wrap: wrap;">
+          <span>Boeing</span> •
+          <span>Lockheed Martin</span> •
+          <span>Northrop Grumman</span> •
+          <span>Raytheon (RTX)</span> •
+          <span>General Dynamics</span> •
+          <span>Honeywell</span> •
+          <span>Thales</span> •
+          <span>L3Harris</span> •
+          <span>MDA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI ESTIMATOR -->
+  <section class="section-wrap alt-bg">
+    <div class="container">
+      <div class="calc-box">
+        <div>
+          <div class="section-heading-sm">Feasibility & Financial Analysis</div>
+          <h3 class="section-heading-lg" style="font-size: 1.5rem; margin-bottom: 8px;">Operational Search Elimination Calculator</h3>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px;">
+            Estimate annual technician search hour reduction, tool calibration audit risk elimination, and WIP bottleneck mitigation for your manufacturing high-bays.
+          </p>
+
+          <div class="calc-row">
+            <div class="calc-label-bar">
+              <span>Facility Floor Area</span>
+              <span class="calc-label-val" id="dispSqft">150,000 sq ft</span>
+            </div>
+            <input type="range" id="inputSqft" min="20000" max="500000" step="10000" value="150000" oninput="updateCalculator()" />
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-label-bar">
+              <span>Assembly Technicians per Shift</span>
+              <span class="calc-label-val" id="dispTechs">80 Technicians</span>
+            </div>
+            <input type="range" id="inputTechs" min="10" max="300" step="5" value="80" oninput="updateCalculator()" />
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-label-bar">
+              <span>Calibrated GSE & Smart Tooling Assets</span>
+              <span class="calc-label-val" id="dispGSE">450 Tools</span>
+            </div>
+            <input type="range" id="inputGSE" min="50" max="2000" step="25" value="450" oninput="updateCalculator()" />
+          </div>
+        </div>
+
+        <div class="calc-output-card">
+          <div class="output-item">
+            <span class="output-label">Annual Search Hours Eliminated</span>
+            <span class="output-val" id="resHours">14,400 hrs</span>
+          </div>
+          <div class="output-item">
+            <span class="output-label">Estimated Annual Labor Savings ($)</span>
+            <span class="output-val" id="resDollars">$1,080,000</span>
+          </div>
+          <div class="output-item">
+            <span class="output-label">Tool Calibration Audit Risk Exposure</span>
+            <span class="output-val" style="color: var(--brand-blue);">0.00%</span>
+          </div>
+          <button class="btn btn-primary" onclick="openContactModal('Custom Feasibility Report Request')" style="width: 100%; margin-top: 6px;">
+            Export Plant Feasibility Assessment
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT & INSTITUTIONAL PEDIGREE -->
+  <section class="section-wrap" id="about">
+    <div class="container">
+      <div class="module-grid-2" style="align-items: center;">
+        <div>
+          <div class="section-heading-sm">Engineering Pedigree</div>
+          <h2 class="section-heading-lg" style="margin-bottom: 12px;">Two Decades of Industrial IoT Leadership</h2>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-body); margin-bottom: 14px;">
+            AeroMfg AI is developed within Aperture Venture Studio with support from GAO. We bring two decades of proven experience serving thousands of industrial IoT customers across the United States and Canada.
+          </p>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-body); margin-bottom: 20px;">
+            Headed by Ph.D. professionals from top universities, AeroMfg AI maintains heavy sustained investments in R&D, evidence-based mathematical modeling, and ruggedized hardware topology to meet the rigorous zero-failure standards demanded by commercial aerospace prime contractors.
+          </p>
+          <button class="btn btn-outline btn-sm" onclick="openContactModal('Research & Pedigree Briefing')">
+            Request Engineering Briefing
+          </button>
+        </div>
+
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-strong); border-radius: var(--radius-md); padding: 24px;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; color: var(--text-heading); margin-bottom: 12px;">Enterprise Assurance</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 12.5px; color: var(--text-body);">
+            <li>✓ <b>Thousands of Executed Projects:</b> Proven deployments across Tier-1 aerostructures and high-bay hangars.</li>
+            <li>✓ <b>Remote & On-Site Field Engineering:</b> Dedicated support throughout RF surveys, commissioning, and validation.</li>
+            <li>✓ <b>Defense-Grade Data Sovereignty:</b> Air-gapped on-prem processing or encrypted hybrid cloud options.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid-layout">
+        <div>
+          <div class="brand-group" style="margin-bottom: 12px; color: #ffffff;">
+            <div class="brand-mark" style="background: #1e293b;">
+              <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </div>
+            <span class="brand-title" style="color: #ffffff;">AeroMfg AI</span>
+          </div>
+          <p style="font-size: 12px; line-height: 1.6; margin-bottom: 12px;">
+            AIoT Operational Intelligence for Commercial Aircraft Manufacturing, Final Assembly Lines, and High-Bay Integration Facilities.
+          </p>
+          <div style="font-size: 11px; font-family: var(--font-mono); color: #64748b;">
+            Domain: <b>aeromfgai.com</b> | Aperture Venture Studio
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Workforce & Assets</div>
+          <ul class="footer-links-col">
+            <li><a href="#workforce">Personnel Proximity Analytics</a></li>
+            <li><a href="#workforce">Secure Perimeter Access Logic</a></li>
+            <li><a href="#workforce">Hazard Zone Compliance</a></li>
+            <li><a href="#assets">Airframe Tracking Analytics</a></li>
+            <li><a href="#assets">GSE Calibration Lifecycle</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Software & Hardware</div>
+          <ul class="footer-links-col">
+            <li><a href="#software">Assembly WIP Monitoring</a></li>
+            <li><a href="#software">Digital Thread Genealogy</a></li>
+            <li><a href="#software">Production Synchronization</a></li>
+            <li><a href="#sensing">Industrial UHF RFID Nodes</a></li>
+            <li><a href="#sensing">Precision BLE Gateways</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Technical Resources</div>
+          <ul class="footer-links-col">
+            <li><a href="#api-specs">RESTful API Architecture</a></li>
+            <li><a href="#case-studies">11 PSR Case Studies</a></li>
+            <li><a href="#standards">AS9100 / FAA AC 21-43</a></li>
+            <li><a href="#about">Aperture & GAO Pedigree</a></li>
+            <li><a href="javascript:void(0)" onclick="openContactModal('Consulting Request')">Contact Solution Architects</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>© 2026 AeroMfg AI. All rights reserved. Built for Commercial Aircraft Manufacturing.</div>
+        <div style="display: flex; gap: 16px; font-family: var(--font-mono);">
+          <span>SECURITY: AES-256 / mTLS 1.3</span>
+          <span>UPTIME: 99.998%</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: CONTACT & FEASIBILITY CONSULTING -->
+  <div class="modal-backdrop" id="contactModal" onclick="closeContactModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeContactModal()">&times;</button>
+      <div class="eyebrow-tag" style="margin-bottom: 8px;">Direct Engineering Consultation</div>
+      <h3 class="section-heading-lg" style="font-size: 1.4rem; margin-bottom: 6px;" id="modalHeading">Request Technical Consultation</h3>
+      <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 18px;">
+        Connect directly with our Ph.D.-level solution architects to discuss specific facility footprints, cleanroom classifications, or AS9100 digital thread integration.
+      </p>
+
+      <form onsubmit="handleFormSubmit(event)">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" placeholder="Jane Doe, Systems Lead" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enterprise Email</label>
+            <input type="email" class="form-input" placeholder="j.doe@aerospace-oem.com" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label">Facility Location (City / State)</label>
+            <input type="text" class="form-input" placeholder="e.g. Seattle, WA or Montreal, QC" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Primary Scope</label>
+            <select class="form-input">
+              <option>Personnel Proximity & Cobot Safety</option>
+              <option>GSE Tooling Calibration & Gatekeeping</option>
+              <option>WIP & Component Digital Thread Genealogy</option>
+              <option>Complete High-Bay AIoT Sensor Grid</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Facility Scope & Integration Notes</label>
+          <textarea class="form-input" rows="3" placeholder="Describe square footage, active GSE tools, cleanroom class, or ERP/MES systems (SAP, Teamcenter)..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px;">
+          <button type="button" class="btn btn-outline" onclick="closeContactModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Engineering Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Simulator Interactive View Switcher
+    function setSimView(view) {
+      document.querySelectorAll('.layer-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      const timeStr = new Date().toTimeString().split(' ')[0];
+      
+      if (view === 'workforce') {
+        appendLog(timeStr, '[FILTER: WORKFORCE]', 'Highlighting 12 active UWB badges and cobot proximity margins.', 'normal');
+      } else if (view === 'gse') {
+        appendLog(timeStr, '[FILTER: GSE]', 'Highlighting 412 active calibrated tools and torque wrenches.', 'normal');
+      } else if (view === 'cleanroom') {
+        appendLog(timeStr, '[FILTER: CLEANROOM]', 'ISO Class 5 composite curing and optic staging active.', 'success');
+      } else {
+        appendLog(timeStr, '[FILTER: ALL]', 'Displaying unified AIoT sensor fusion grid.', 'normal');
+      }
+    }
+
+    // Node click detail inspector
+    function showNodeDetails(title, details) {
+      const infoBox = document.getElementById('selectedNodeInfo');
+      infoBox.innerHTML = `<b>${title}</b><br/><span style="color: var(--text-muted); font-size: 11px;">${details}</span>`;
+      
+      const timeStr = new Date().toTimeString().split(' ')[0];
+      appendLog(timeStr, '[INSPECT]', `${title} queried.`, 'normal');
+    }
+
+    // Trigger Simulation Events
+    function triggerSimEvent(type) {
+      const timeStr = new Date().toTimeString().split(' ')[0];
+      if (type === 'hazard_breach') {
+        appendLog(timeStr, '[ALERT: HAZARD GEOFENCE]', 'Unbadged entity approached High-Voltage Avionics Bay. Automated dynamic interlock active.', 'danger');
+        alert('Simulated Alert: High-Voltage Test Bay Interlock Activated due to perimeter proximity breach!');
+      } else if (type === 'gse_scan') {
+        appendLog(timeStr, '[GSE TORQUE PASS]', 'Fastener #FAL-88390 torqued to 52.4 Nm with Driver #TRQ-99. AS9100 hash created.', 'success');
+      }
+    }
+
+    function appendLog(time, tag, msg, type) {
+      const logBox = document.getElementById('eventLogBox');
+      const entry = document.createElement('div');
+      entry.className = `feed-entry ${type}`;
+      entry.innerHTML = `<span class="feed-time">${time}</span> <b>${tag}</b> ${msg}`;
+      logBox.insertBefore(entry, logBox.firstChild);
+    }
+
+    // Filter Case Studies
+    function filterCaseStudies(filter) {
+      document.querySelectorAll('.case-tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.case-study-box');
+      cards.forEach(card => {
+        const country = card.getAttribute('data-country');
+        const tag = card.getAttribute('data-tag');
+
+        if (filter === 'all') {
+          card.style.display = 'flex';
+        } else if (filter === 'us' || filter === 'ca') {
+          card.style.display = (country === filter) ? 'flex' : 'none';
+        } else {
+          card.style.display = (tag === filter) ? 'flex' : 'none';
+        }
+      });
+    }
+
+    // API Explorer Tab Switcher
+    const apiData = {
+      geofence: {
+        title: 'Real-Time Proximity Alert Webhook',
+        desc: 'Dispatches automated webhook payloads to PLC emergency brakes and wearable haptic bands whenever technician UWB coordinates breach designated robotic envelopes.',
+        code: `{\n  "event_id": "EVT-882910-UWB",\n  "timestamp": "2026-10-09T20:21:04.182Z",\n  "zone_id": "ZONE-FAL-WINGBOX-01",\n  "entity": {\n    "badge_id": "TECH-408",\n    "clearance_level": "TIER-3-AVIONICS",\n    "esd_safe": true,\n    "uwb_coords": { "x": 340.2, "y": 110.8, "z": 1.4 }\n  },\n  "proximity_breach": {\n    "target": "COBOT-RIVETER-04B",\n    "margin_meters": 0.85,\n    "threshold_meters": 1.20,\n    "action_triggered": "DYNAMIC_SPEED_REDUCTION"\n  }\n}`
+      },
+      genealogy: {
+        title: 'Digital Thread Component Provenance Query',
+        desc: 'Retrieves complete cryptographic genealogy, supplier MTR certificates, torque inspection history, and environmental cleanroom logs for a serialized airframe component.',
+        code: `{\n  "component_uuid": "CMP-AIRFRAME-TITANIUM-09882",\n  "part_number": "BAC-88910-SPAR",\n  "raw_material_heat_lot": "HEAT-TI-4482-USA",\n  "as_built_serial": "SN-2026-0914-A",\n  "compliance": {\n    "as9100_rev_d": "VERIFIED",\n    "faa_ac_21_43": "CERTIFIED",\n    "torque_signatures": [\n      { "fastener_id": "F-01", "torque_nm": 52.4, "tool_id": "TRQ-99", "inspector": "TECH-408" }\n    ],\n    "environmental_excursion_count": 0\n  }\n}`
+      },
+      gse: {
+        title: 'GSE Tooling & Calibration Status Query',
+        desc: 'Validates real-time calibration compliance, cycle counts, and lock-out states for all active assembly tooling across high-bay integration stations.',
+        code: `{\n  "tool_id": "GSE-TRQ-99",\n  "tool_type": "DIGITAL_TORQUE_DRIVER",\n  "calibration_certificate": "CAL-NIST-2026-8819",\n  "calibration_valid_until": "2026-11-15T00:00:00Z",\n  "status": "IN_TOLERANCE",\n  "cycles_since_calibration": 1420,\n  "max_allowed_cycles": 5000,\n  "checkout_gate_lockout": false\n}`
+      }
+    };
+
+    function switchApiTab(key) {
+      document.querySelectorAll('.api-tab').forEach(tab => tab.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const data = apiData[key];
+      document.getElementById('apiDocTitle').innerText = data.title;
+      document.getElementById('apiDocDesc').innerText = data.desc;
+      document.getElementById('apiCodeSnippet').innerHTML = `<code>${data.code}</code>`;
+    }
+
+    function copyCodeSnippet() {
+      const code = document.getElementById('apiCodeSnippet').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('API Payload copied to clipboard!');
+      });
+    }
+
+    // ROI Calculator Logic
+    function updateCalculator() {
+      const sqft = parseInt(document.getElementById('inputSqft').value);
+      const techs = parseInt(document.getElementById('inputTechs').value);
+      const gse = parseInt(document.getElementById('inputGSE').value);
+
+      document.getElementById('dispSqft').innerText = sqft.toLocaleString() + ' sq ft';
+      document.getElementById('dispTechs').innerText = techs + ' Technicians';
+      document.getElementById('dispGSE').innerText = gse + ' Tools';
+
+      const hoursSaved = techs * 180;
+      const dollarSavings = hoursSaved * 75; // $75/hr loaded aerospace rate
+
+      document.getElementById('resHours').innerText = hoursSaved.toLocaleString() + ' hrs';
+      document.getElementById('resDollars').innerText = '$' + dollarSavings.toLocaleString();
+    }
+
+    // Contact & Assessment Modal
+    function openContactModal(title) {
+      if (title) {
+        document.getElementById('modalHeading').innerText = title;
+      }
+      document.getElementById('contactModal').classList.add('open');
+    }
+
+    function closeContactModal(e) {
+      document.getElementById('contactModal').classList.remove('open');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Thank you. Your technical inquiry has been submitted to the AeroMfg AI solution architect team.');
+      closeContactModal();
+    }
+
+    function inspectAssetModal(partName, serial) {
+      alert(`Digital Thread Provenance for ${partName} (${serial}):\n- Material Test Report: Heat Lot TI-4482 (PASSED)\n- Non-Destructive Ultrasonic Test: ZERO Defects\n- AS9100 Rev D Build Dossier: Digitally Signed`);
+    }
+  </script>
+</body>
+</html>
