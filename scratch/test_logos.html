@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Style Exploration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f8fafc;
+      font-family: sans-serif;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .header-mock {
+      background: #ffffff;
+      padding: 14px 24px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #e2e8f0;
+      width: 600px;
+    }
+    .btn-mock {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #d1d5db;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .btn-mock span {
+      width: 18px;
+      height: 2px;
+      background: #1e293b;
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       STYLE 1: ORBITRON AEROSPACE VELOCITY (FUTURISTIC SKEW + GRADIENT)
+       ============================================================ */
+    .logo-style-1 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      user-select: none;
+    }
+    .logo-style-1 .brand-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      transform: skewX(-8deg);
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .logo-style-1 .brand-name .part-aero {
+      color: #090d16;
+    }
+    .logo-style-1 .brand-name .part-mfg {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-left: 1px;
+    }
+    .logo-style-1 .ai-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+      padding: 3px 6px;
+      border-radius: 4px;
+      transform: skewX(-8deg);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.25);
+    }
+
+    /* ============================================================
+       STYLE 2: SUPERSONIC DELTA EMBLEM + GEOMETRIC AEROSPACE WORDMARK
+       ============================================================ */
+    .logo-style-2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      user-select: none;
+    }
+    .logo-style-2 .delta-icon {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      clip-path: polygon(50% 0%, 100% 85%, 50% 68%, 0% 85%);
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+      flex-shrink: 0;
+    }
+    .logo-style-2 .text-block {
+      display: inline-flex;
+      align-items: baseline;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .logo-style-2 .text-block .text-aero {
+      color: #0f172a;
+    }
+    .logo-style-2 .text-block .text-mfg {
+      color: #64748b;
+      font-weight: 600;
+    }
+    .logo-style-2 .ai-pill {
+      background: #2563eb;
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+      margin-left: 2px;
+    }
+
+    /* ============================================================
+       STYLE 3: RAJDHANI DEFENSE AVIONICS HUD STYLE
+       ============================================================ */
+    .logo-style-3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      user-select: none;
+    }
+    .logo-style-3 .hud-prefix {
+      color: #2563eb;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .logo-style-3 .brand-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .logo-style-3 .brand-title .part-aero {
+      color: #0f172a;
+    }
+    .logo-style-3 .brand-title .part-mfg {
+      color: #2563eb;
+      font-weight: 600;
+    }
+    .logo-style-3 .ai-badge {
+      background: #0f172a;
+      border: 1px solid #1e3a8a;
+      color: #60a5fa;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================================
+       STYLE 4: MONOLITHIC TITANIUM GRADIENT (MINIMALIST HIGH-TECH)
+       ============================================================ */
+    .logo-style-4 {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      user-select: none;
+    }
+    .logo-style-4 .brand-word {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #090d16;
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .logo-style-4 .brand-word .accent-dot {
+      width: 5px;
+      height: 5px;
+      background: #2563eb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 4px 3px;
+      box-shadow: 0 0 6px #2563eb;
+    }
+    .logo-style-4 .brand-word .part-mfg {
+      color: #475569;
+      font-weight: 500;
+    }
+    .logo-style-4 .ai-glow {
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 5px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 6px rgba(37,99,235,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Style 1: Orbitron Supersonic Velocity (Futuristic Italic + Electric Blue Gradient + Cyber AI Chip)</h3>
+  <div class="header-mock">
+    <a href="#" class="logo-style-1">
+      <span class="brand-name">
+        <span class="part-aero">AERO</span><span class="part-mfg">MFG</span>
+      </span>
+      <span class="ai-chip">AI</span>
+    </a>
+    <div class="btn-mock"><span></span><span></span><span></span></div>
+  </div>
+
+  <h3>Style 2: Supersonic Delta Wing + Orbitron Geometric Wordmark + Aero Blue Pill</h3>
+  <div class="header-mock">
+    <a href="#" class="logo-style-2">
+      <span class="delta-icon"></span>
+      <span class="text-block">
+        <span class="text-aero">AERO</span><span class="text-mfg">MFG</span>
+      </span>
+      <span class="ai-pill">AI</span>
+    </a>
+    <div class="btn-mock"><span></span><span></span><span></span></div>
+  </div>
+
+  <h3>Style 3: Rajdhani Defense Avionics HUD Style</h3>
+  <div class="header-mock">
+    <a href="#" class="logo-style-3">
+      <span class="hud-prefix">&gt;</span>
+      <span class="brand-title">
+        <span class="part-aero">Aero</span><span class="part-mfg">MFG</span>
+      </span>
+      <span class="ai-badge">AI</span>
+    </a>
+    <div class="btn-mock"><span></span><span></span><span></span></div>
+  </div>
+
+  <h3>Style 5 (Ultimate Combination): Aerodynamic Supersonic Delta + Orbitron Velocity + Cyber AI Badge</h3>
+  <div class="header-mock">
+    <a href="#" class="logo-style-5">
+      <span class="delta-mark"></span>
+      <span class="brand-text">
+        <span class="text-aero">AERO</span><span class="text-mfg">MFG</span>
+      </span>
+      <span class="ai-chip">AI</span>
+    </a>
+    <div class="btn-mock"><span></span><span></span><span></span></div>
+  </div>
+
+  <style>
+    .logo-style-5 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      user-select: none;
+    }
+    .logo-style-5 .delta-mark {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      clip-path: polygon(50% 0%, 100% 85%, 50% 68%, 0% 85%);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+      flex-shrink: 0;
+      transform: skewX(-7deg);
+    }
+    .logo-style-5 .brand-text {
+      font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      transform: skewX(-7deg);
+      display: inline-flex;
+      align-items: baseline;
+      line-height: 1;
+    }
+    .logo-style-5 .brand-text .text-aero {
+      color: #090d16;
+    }
+    .logo-style-5 .brand-text .text-mfg {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-left: 1px;
+    }
+    .logo-style-5 .ai-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      background: #090d16;
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+      padding: 2.5px 6.5px;
+      border-radius: 4px;
+      transform: skewX(-7deg);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.25);
+      line-height: 1;
+    }
+    .logo-style-5:hover .delta-mark {
+      transform: skewX(-7deg) scale(1.05);
+      transition: transform 0.2s ease;
+    }
+    .logo-style-5:hover .ai-chip {
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+      transition: box-shadow 0.2s ease;
+    }
+  </style>
+
+</body>
+</html>
