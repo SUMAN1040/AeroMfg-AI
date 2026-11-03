@@ -323,8 +323,10 @@ button, input, select, textarea {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid #f1f5f9;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(241, 245, 249, 0.8);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
 }
 
@@ -1735,8 +1737,11 @@ button, input, select, textarea {
   width: 380px;
   max-width: 88vw;
   height: 100%;
-  background: #ffffff;
-  box-shadow: var(--shadow-modal);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -1779,55 +1784,38 @@ button, input, select, textarea {
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .mobile-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13.5px;
-  font-weight: 600;
+  display: block;
+  font-size: 14.5px;
+  font-weight: 500;
   color: var(--text-heading);
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: var(--radius-sm);
   text-decoration: none;
+  background: transparent;
   transition: all 0.15s ease;
   border-left: 3px solid transparent;
 }
 
 .mobile-nav-link .nav-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-muted);
-  background: var(--bg-muted);
-  padding: 2px 7px;
-  border-radius: 4px;
-  transition: all 0.15s ease;
+  display: none;
 }
 
 .mobile-nav-link:hover {
-  background: var(--bg-muted);
+  background: rgba(2, 132, 199, 0.06);
   color: var(--brand-blue);
   border-left-color: var(--brand-blue);
-}
-
-.mobile-nav-link:hover .nav-num {
-  background: var(--brand-blue);
-  color: #ffffff;
+  padding-left: 20px;
 }
 
 .mobile-nav-link.active {
-  background: #eff6ff;
+  background: transparent;
   color: var(--brand-blue);
   border-left-color: var(--brand-blue);
-  font-weight: 700;
-}
-
-.mobile-nav-link.active .nav-num {
-  background: var(--brand-blue);
-  color: #ffffff;
+  font-weight: 600;
 }
 
 /* ==========================================================================
@@ -1925,6 +1913,19 @@ button, input, select, textarea {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 14px;
+}
+
+.subpage-hero .btn-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.subpage-hero .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .subpage-pill {
@@ -2676,5 +2677,787 @@ button, input, select, textarea {
   transform: translateZ(60px) rotateX(45deg);
 }
 
+/* ==========================================================================
+   ABOUT & CONTACT HOMEPAGE SECTIONS
+   ========================================================================== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: stretch;
+}
 
+@media (min-width: 1400px) {
+  .about-layout {
+    gap: 64px;
+  }
+}
+
+.about-narrative-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 36px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.about-stat-box {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.about-stat-box:hover {
+  border-color: var(--brand-blue-border);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.contact-home-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (min-width: 1400px) {
+  .contact-home-layout {
+    gap: 64px;
+  }
+}
+
+.contact-form-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 36px;
+  box-shadow: var(--shadow-card);
+}
+
+.contact-info-panel {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  border-radius: var(--radius-md);
+  padding: 36px;
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .about-layout,
+  .contact-home-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   SPACE WORKFORCE SECURITY INTELLIGENCE - 3D COMMAND STAGE & TECHIE ACCENTS
+   ========================================================================== */
+
+/* Subpage Hero Layout & Spec Strip */
+.subpage-hero .hero-layout {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 1400px) {
+  .subpage-hero .hero-layout {
+    gap: 72px;
+  }
+}
+
+.subpage-hero .spec-strip {
+  border-top-color: rgba(255, 255, 255, 0.12);
+  margin-top: 32px;
+  padding-top: 24px;
+}
+
+.subpage-hero .spec-val {
+  color: #38bdf8;
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.subpage-hero .spec-label {
+  color: #94a3b8;
+}
+
+/* 3D Security Command Console Wrapper */
+.sec-stage-wrapper {
+  background: radial-gradient(circle at 50% 35%, #0e1e3e 0%, #070c18 65%, #03060d 100%);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-stage-header {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 10;
+}
+
+.sec-stage-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sec-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation: pulseBlink 1.8s infinite ease-in-out;
+}
+
+/* Radio Switcher States for Security Console */
+#sec-envelope:checked ~ .sec-stage-wrapper .cam-btn[for="sec-envelope"],
+#sec-radar:checked ~ .sec-stage-wrapper .cam-btn[for="sec-radar"],
+#sec-zonal:checked ~ .sec-stage-wrapper .cam-btn[for="sec-zonal"] {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+}
+
+/* 3D Viewport & World */
+.sec-viewport-3d {
+  height: 410px;
+  width: 100%;
+  position: relative;
+  perspective: 900px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(60deg) rotateZ(-35deg);
+}
+
+#sec-envelope:checked ~ .sec-stage-wrapper .sec-world-3d {
+  transform: rotateX(60deg) rotateZ(-35deg);
+}
+
+#sec-radar:checked ~ .sec-stage-wrapper .sec-world-3d {
+  transform: rotateX(0deg) rotateZ(0deg) scale(0.9);
+}
+
+#sec-zonal:checked ~ .sec-stage-wrapper .sec-world-3d {
+  transform: rotateX(68deg) rotateZ(-45deg) scale(1.05);
+}
+
+/* Ground Grid Plane */
+.sec-grid-plane {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 300px;
+  height: 300px;
+  background-image: 
+    linear-gradient(rgba(56, 189, 248, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.22) 1px, transparent 1px);
+  background-size: 25px 25px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.15);
+  border-radius: 4px;
+  transform-style: preserve-3d;
+}
+
+/* Radar Sweep */
+.sec-radar-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(56, 189, 248, 0.35) 0deg, transparent 65deg, transparent 360deg);
+  animation: radarSpin 6s linear infinite;
+  pointer-events: none;
+}
+
+/* Concentric Geofence Rings */
+.sec-ring {
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.sec-ring-1m {
+  width: 90px;
+  height: 90px;
+  border: 1.5px dashed rgba(244, 63, 94, 0.7);
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.25);
+}
+
+.sec-ring-2m {
+  width: 160px;
+  height: 160px;
+  border: 1px solid rgba(251, 191, 36, 0.6);
+}
+
+.sec-ring-3m {
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+/* Central Payload */
+.sec-payload-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  margin-left: -22px;
+  transform-style: preserve-3d;
+  transform: translateZ(24px);
+}
+
+.sec-payload-bus {
+  width: 44px;
+  height: 44px;
+  background: rgba(14, 165, 233, 0.25);
+  border: 1.5px solid #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: #ffffff;
+  transform: translateZ(10px);
+}
+
+.sec-solar-wing-l,
+.sec-solar-wing-r {
+  position: absolute;
+  top: 10px;
+  width: 32px;
+  height: 24px;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.5), rgba(14, 165, 233, 0.8));
+  border: 1px solid #7dd3fc;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+.sec-solar-wing-l {
+  left: -34px;
+}
+
+.sec-solar-wing-r {
+  right: -34px;
+}
+
+/* 3D Dynamic Cylindrical Safety Envelope */
+.sec-envelope-cylinder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  margin-top: -55px;
+  margin-left: -55px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 70%, transparent 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+  transform-style: preserve-3d;
+  transform: translateZ(16px);
+  animation: geofencePulse 3s ease-in-out infinite;
+}
+
+@keyframes geofencePulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+    border-color: rgba(56, 189, 248, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+    border-color: rgba(56, 189, 248, 0.95);
+  }
+}
+
+/* 4 UWB Anchor Beacons */
+.uwb-beacon {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #38bdf8;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #38bdf8;
+  transform-style: preserve-3d;
+  transform: translateZ(8px);
+}
+
+.uwb-b1 { top: 10px; left: 10px; }
+.uwb-b2 { top: 10px; right: 10px; }
+.uwb-b3 { bottom: 10px; left: 10px; }
+.uwb-b4 { bottom: 10px; right: 10px; }
+
+/* Personnel Wearable Nodes in 3D Space */
+.sec-node {
+  position: absolute;
+  padding: 3px 6px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  border-radius: 3px;
+  white-space: nowrap;
+  transform-style: preserve-3d;
+  transform: translateZ(28px) rotateX(-60deg) rotateZ(35deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+#sec-radar:checked ~ .sec-stage-wrapper .sec-node {
+  transform: translateZ(28px) rotateX(0deg) rotateZ(0deg);
+}
+
+.sec-node-tech4 {
+  top: 40px;
+  right: 35px;
+  background: rgba(16, 185, 129, 0.9);
+  color: #ffffff;
+  border: 1px solid #6ee7b7;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.sec-node-tech9 {
+  bottom: 50px;
+  left: 65px;
+  background: rgba(245, 158, 11, 0.9);
+  color: #ffffff;
+  border: 1px solid #fcd34d;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Zonal Layer Planes */
+.zonal-layer {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 230px;
+  height: 230px;
+  border-radius: 4px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-start;
+  padding: 8px;
+}
+
+.zonal-layer-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.zonal-layer-1 {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+  transform: translateZ(0px);
+}
+.zonal-layer-1 .zonal-layer-label {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.zonal-layer-2 {
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px dashed rgba(56, 189, 248, 0.45);
+  transform: translateZ(0px);
+}
+.zonal-layer-2 .zonal-layer-label {
+  background: #0369a1;
+  color: #e0f2fe;
+}
+
+.zonal-layer-3 {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.55);
+  transform: translateZ(0px);
+}
+.zonal-layer-3 .zonal-layer-label {
+  background: #047857;
+  color: #ecfdf5;
+}
+
+#sec-zonal:checked ~ .sec-stage-wrapper .zonal-layer-1 {
+  transform: translateZ(-40px);
+}
+#sec-zonal:checked ~ .sec-stage-wrapper .zonal-layer-2 {
+  transform: translateZ(10px);
+}
+#sec-zonal:checked ~ .sec-stage-wrapper .zonal-layer-3 {
+  transform: translateZ(60px);
+}
+#sec-zonal:checked ~ .sec-stage-wrapper .zonal-layer-label {
+  opacity: 1;
+}
+
+/* Security Console Telemetry Footer */
+.sec-stage-footer {
+  background: rgba(10, 15, 28, 0.95);
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 10px 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  z-index: 10;
+}
+
+.sec-telemetry-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-telemetry-lbl {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sec-telemetry-val {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: #38bdf8;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .subpage-hero .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sec-stage-footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sec-viewport-3d {
+    height: 340px;
+  }
+}
+
+/* Techie Box Reticle Brackets for Narrative Columns */
+.techie-hud-card {
+  position: relative;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.techie-hud-card:hover {
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 12px 28px -6px rgba(2, 132, 199, 0.12);
+  transform: translateY(-2px);
+}
+
+.techie-hud-card::before,
+.techie-hud-card::after {
+  content: "+";
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(2, 132, 199, 0.4);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.techie-hud-card::before {
+  top: 6px;
+  left: 8px;
+}
+
+.techie-hud-card::after {
+  bottom: 6px;
+  right: 8px;
+}
+
+/* Micro Spec Chip on Module Cards */
+.tech-micro-chip {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 3px 8px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  border-radius: 4px;
+  color: #0284c7;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dark-bg .tech-micro-chip {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+/* ========================================================
+   SPACE ASSET LIFECYCLE 3D CONSOLE CONTROLLERS & MODELS (ZERO JS)
+   ======================================================== */
+.asset-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(60deg) rotateZ(-30deg);
+}
+
+#asset-orbit:checked ~ .sec-stage-wrapper .asset-world-3d {
+  transform: rotateX(58deg) rotateZ(-32deg);
+}
+
+#asset-calibration:checked ~ .sec-stage-wrapper .asset-world-3d {
+  transform: rotateX(68deg) rotateZ(-40deg) scale(1.02);
+}
+
+#asset-genealogy:checked ~ .sec-stage-wrapper .asset-world-3d {
+  transform: rotateX(72deg) rotateZ(-55deg) scale(1.08);
+}
+
+#asset-orbit:checked ~ .sec-stage-wrapper label[for="asset-orbit"],
+#asset-calibration:checked ~ .sec-stage-wrapper label[for="asset-calibration"],
+#asset-genealogy:checked ~ .sec-stage-wrapper label[for="asset-genealogy"] {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+/* Asset Console 3D Hardware Core */
+.asset-core-satellite {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  transform-style: preserve-3d;
+  transform: translateZ(26px);
+  transition: all 0.6s ease;
+}
+
+.asset-core-bus {
+  width: 50px;
+  height: 50px;
+  background: rgba(14, 165, 233, 0.3);
+  border: 1.5px solid #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #ffffff;
+  transform: translateZ(12px);
+  letter-spacing: 0.05em;
+}
+
+.asset-solar-array-l,
+.asset-solar-array-r {
+  position: absolute;
+  top: 12px;
+  width: 42px;
+  height: 26px;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.65), rgba(14, 165, 233, 0.95));
+  border: 1px solid #7dd3fc;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+}
+
+.asset-solar-array-l { left: -46px; }
+.asset-solar-array-r { right: -46px; }
+
+/* GSE Calibrated Tooling Rig Fixture */
+.gse-tooling-fixture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  margin-top: -70px;
+  margin-left: -70px;
+  border: 1.5px dashed rgba(245, 158, 11, 0.7);
+  border-radius: 8px;
+  transform-style: preserve-3d;
+  transform: translateZ(14px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+#asset-calibration:checked ~ .sec-stage-wrapper .gse-tooling-fixture {
+  border-color: #f59e0b;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+}
+
+/* Floating Asset Telemetry Tags */
+.asset-tag-pill {
+  position: absolute;
+  padding: 3px 6px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  border-radius: 3px;
+  white-space: nowrap;
+  transform-style: preserve-3d;
+  transform: translateZ(32px) rotateX(-58deg) rotateZ(32deg);
+  transition: transform 0.6s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.tag-tvac {
+  top: 36px;
+  right: 20px;
+  background: rgba(56, 189, 248, 0.9);
+  color: #041026;
+  border: 1px solid #bae6fd;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.tag-calib {
+  bottom: 40px;
+  left: 20px;
+  background: rgba(16, 185, 129, 0.9);
+  color: #ffffff;
+  border: 1px solid #a7f3d0;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+/* Digital Thread Genealogy Planes (Stacked in 3D for Genealogy Mode) */
+.genealogy-plane {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 230px;
+  height: 230px;
+  border-radius: 4px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-start;
+  padding: 8px;
+}
+
+.genealogy-label {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.genealogy-plane-1 {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+  transform: translateZ(0px);
+}
+.genealogy-plane-1 .genealogy-label {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.genealogy-plane-2 {
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px dashed rgba(56, 189, 248, 0.45);
+  transform: translateZ(0px);
+}
+.genealogy-plane-2 .genealogy-label {
+  background: #0369a1;
+  color: #e0f2fe;
+}
+
+.genealogy-plane-3 {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.55);
+  transform: translateZ(0px);
+}
+.genealogy-plane-3 .genealogy-label {
+  background: #047857;
+  color: #ecfdf5;
+}
+
+#asset-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-1 {
+  transform: translateZ(-40px);
+}
+#asset-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-2 {
+  transform: translateZ(10px);
+}
+#asset-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-3 {
+  transform: translateZ(60px);
+}
+#asset-genealogy:checked ~ .sec-stage-wrapper .genealogy-label {
+  opacity: 1;
+}
 
