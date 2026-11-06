@@ -3460,3 +3460,140 @@ button, input, select, textarea {
 #asset-genealogy:checked ~ .sec-stage-wrapper .genealogy-label {
   opacity: 1;
 }
+
+/* ========================================================
+   IOT SOFTWARE FOR SPACE MANUFACTURING 3D CONSOLE (ZERO JS)
+   ======================================================== */
+.soft-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(60deg) rotateZ(-30deg);
+}
+
+#soft-wip:checked ~ .sec-stage-wrapper .soft-world-3d {
+  transform: rotateX(56deg) rotateZ(-28deg);
+}
+
+#soft-genealogy:checked ~ .sec-stage-wrapper .soft-world-3d {
+  transform: rotateX(72deg) rotateZ(-55deg) scale(1.06);
+}
+
+#soft-sync:checked ~ .sec-stage-wrapper .soft-world-3d {
+  transform: rotateX(64deg) rotateZ(-40deg) scale(1.02);
+}
+
+#soft-wip:checked ~ .sec-stage-wrapper label[for="soft-wip"],
+#soft-genealogy:checked ~ .sec-stage-wrapper label[for="soft-genealogy"],
+#soft-sync:checked ~ .sec-stage-wrapper label[for="soft-sync"] {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+/* 3D Flow Nodes for Assembly WIP */
+.soft-station-node {
+  position: absolute;
+  width: 62px;
+  height: 40px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1.5px solid #38bdf8;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  color: #ffffff;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+  padding: 4px;
+  text-align: center;
+}
+
+.soft-st-title {
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.04em;
+}
+
+.soft-st-metric {
+  font-size: 7.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.soft-st-1 { top: 15px; left: 15px; transform: translateZ(20px); }
+.soft-st-2 { top: 15px; right: 15px; transform: translateZ(20px); border-color: #a855f7; box-shadow: 0 0 12px rgba(168, 85, 247, 0.35); }
+.soft-st-2 .soft-st-title { color: #c084fc; }
+.soft-st-3 { bottom: 20px; right: 15px; transform: translateZ(20px); border-color: #10b981; box-shadow: 0 0 12px rgba(16, 185, 129, 0.35); }
+.soft-st-3 .soft-st-title { color: #34d399; }
+.soft-st-4 { bottom: 20px; left: 15px; transform: translateZ(20px); border-color: #f59e0b; box-shadow: 0 0 12px rgba(245, 158, 11, 0.35); }
+.soft-st-4 .soft-st-title { color: #fbbf24; }
+
+/* Central Orchestration Core */
+.soft-core-engine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 68px;
+  margin-top: -34px;
+  margin-left: -34px;
+  background: rgba(2, 132, 199, 0.3);
+  border: 2px solid #0284c7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: translateZ(32px);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.55);
+}
+
+/* Connecting Flow Path Orbit */
+.soft-flow-path {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 175px;
+  height: 175px;
+  margin-top: -87.5px;
+  margin-left: -87.5px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.5);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(12px);
+  animation: radarSweepBeam 14s linear infinite;
+}
+
+#soft-sync:checked ~ .sec-stage-wrapper .soft-flow-path {
+  border-color: rgba(16, 185, 129, 0.75);
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);
+}
+
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-1 {
+  transform: translateZ(-35px);
+}
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-2 {
+  transform: translateZ(12px);
+}
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-3 {
+  transform: translateZ(62px);
+}
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-label {
+  opacity: 1;
+}
