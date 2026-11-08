@@ -475,16 +475,36 @@ button, input, select, textarea {
    HERO SECTION
    ========================================================================== */
 .hero-wrap {
-  padding: 72px 0 65px;
-  background: linear-gradient(180deg, #ffffff 0%, var(--bg-subtle) 100%);
+  padding: 86px 0 80px;
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(circle at 85% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 15% 85%, rgba(14, 165, 233, 0.04) 0%, transparent 45%),
+    linear-gradient(rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(226, 232, 240, 0.45) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 42px 42px, 42px 42px;
   border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0284c7, #38bdf8, transparent);
+  pointer-events: none;
 }
 
 .hero-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.12fr 0.88fr;
   gap: 64px;
   align-items: center;
+  min-height: 500px;
 }
 
 @media (min-width: 1360px) {
@@ -501,20 +521,20 @@ button, input, select, textarea {
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 3.1vw, 3.35rem);
+  font-size: clamp(2.65rem, 3.25vw, 3.55rem);
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.18;
   letter-spacing: -0.025em;
   color: var(--text-heading);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hero-description {
-  font-size: 16px;
-  line-height: 1.68;
+  font-size: 16.5px;
+  line-height: 1.76;
   color: var(--text-body);
-  margin-bottom: 30px;
-  max-width: 760px;
+  margin-bottom: 36px;
+  max-width: 700px;
 }
 
 .hero-btn-row {
@@ -522,7 +542,60 @@ button, input, select, textarea {
   align-items: center;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+}
+
+/* Hero Primary Solitary CTA Button */
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #0284c7 0%, #0052cc 100%);
+  color: #ffffff !important;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 14px 30px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  box-shadow: 0 4px 20px -2px rgba(2, 132, 199, 0.45), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-cta-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.6s ease;
+}
+
+.hero-cta-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0369a1 0%, #0747a6 100%);
+  box-shadow: 0 8px 26px -2px rgba(2, 132, 199, 0.55), 0 4px 10px -2px rgba(0, 0, 0, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-cta-btn:hover::before {
+  left: 100%;
+}
+
+.hero-cta-btn .cta-arrow {
+  display: inline-flex;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-cta-btn:hover .cta-arrow {
+  transform: translateX(4px);
 }
 
 .spec-strip {
@@ -557,6 +630,116 @@ button, input, select, textarea {
   color: var(--text-muted);
   font-weight: 500;
   margin-top: 4px;
+}
+
+/* Hero Enhanced Spec Strip Console */
+.hero-wrap .spec-strip {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(203, 213, 225, 0.85);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.05);
+  margin-top: 36px;
+  border-top: 1px solid rgba(203, 213, 225, 0.85);
+}
+
+.hero-wrap .spec-col {
+  border-left: 2px solid rgba(2, 132, 199, 0.22);
+  padding-left: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.hero-wrap .spec-col:hover {
+  border-left-color: var(--brand-blue);
+}
+
+.hero-wrap .spec-col:first-child {
+  border-left-color: var(--brand-blue);
+}
+
+.hero-wrap .spec-val {
+  font-family: var(--font-mono);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+.hero-wrap .spec-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+/* Aerospace Module Exploration Button */
+.btn-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  background: rgba(2, 132, 199, 0.06);
+  border: 1px solid rgba(2, 132, 199, 0.28);
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+}
+
+.btn-explore:hover {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: var(--brand-blue);
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.28);
+}
+
+.btn-explore .arrow-icon {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.btn-explore:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* 3D Command Stage Telemetry HUD Overlays */
+.stage-hud-overlay {
+  position: absolute;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+  z-index: 5;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+.stage-hud-tl {
+  top: 14px;
+  left: 16px;
+  color: #38bdf8;
+}
+
+.stage-hud-tr {
+  top: 14px;
+  right: 16px;
+  text-align: right;
+  color: #38bdf8;
+}
+
+.stage-hud-label {
+  color: #94a3b8;
+  font-size: 9px;
 }
 
 /* Telemetry HUD Card */
@@ -3470,19 +3653,19 @@ button, input, select, textarea {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: rotateX(60deg) rotateZ(-30deg);
+  transform: rotateX(60deg) rotateZ(-32deg);
 }
 
 #soft-wip:checked ~ .sec-stage-wrapper .soft-world-3d {
-  transform: rotateX(56deg) rotateZ(-28deg);
+  transform: rotateX(60deg) rotateZ(-32deg);
 }
 
 #soft-genealogy:checked ~ .sec-stage-wrapper .soft-world-3d {
-  transform: rotateX(72deg) rotateZ(-55deg) scale(1.06);
+  transform: rotateX(72deg) rotateZ(-55deg) scale(1.08);
 }
 
 #soft-sync:checked ~ .sec-stage-wrapper .soft-world-3d {
-  transform: rotateX(64deg) rotateZ(-40deg) scale(1.02);
+  transform: rotateX(54deg) rotateZ(-18deg) scale(1.04);
 }
 
 #soft-wip:checked ~ .sec-stage-wrapper label[for="soft-wip"],
@@ -3494,61 +3677,288 @@ button, input, select, textarea {
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
 }
 
-/* 3D Flow Nodes for Assembly WIP */
+/* Central Process Orchestration Core */
+.soft-core-engine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 66px;
+  height: 66px;
+  margin-top: -33px;
+  margin-left: -33px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, rgba(2, 132, 199, 0.18) 100%);
+  border: 1.5px solid #38bdf8;
+  border-radius: 8px;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.65), inset 0 0 14px rgba(56, 189, 248, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: translateZ(28px);
+  z-index: 5;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.soft-core-engine .core-brand {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.soft-core-engine .core-sub {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+/* Dynamic Orbiting Assembly Takt Path */
+.soft-flow-path {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 190px;
+  margin-top: -95px;
+  margin-left: -95px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.45);
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+  transform-style: preserve-3d;
+  transform: translateZ(12px);
+  pointer-events: none;
+  animation: rotateTakt 22s linear infinite;
+}
+
+@keyframes rotateTakt {
+  from { transform: translateZ(12px) rotate(0deg); }
+  to { transform: translateZ(12px) rotate(360deg); }
+}
+
+/* 4 Workstation WIP Nodes in 3D Space */
 .soft-station-node {
   position: absolute;
-  width: 62px;
-  height: 40px;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1.5px solid #38bdf8;
+  padding: 5px 8px;
+  background: rgba(10, 15, 28, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  border-radius: 4px;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: translateZ(28px) rotateX(-60deg) rotateZ(32deg);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.soft-st-title {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.soft-st-metric {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+/* Quadrant Placements */
+.soft-st-1 {
+  top: 24px;
+  left: 20px;
+  border-color: rgba(56, 189, 248, 0.85);
+}
+
+.soft-st-2 {
+  top: 24px;
+  right: 20px;
+  border-color: rgba(52, 211, 153, 0.85);
+}
+.soft-st-2 .soft-st-title {
+  color: #34d399;
+}
+
+.soft-st-3 {
+  bottom: 24px;
+  right: 20px;
+  border-color: rgba(251, 191, 36, 0.85);
+}
+.soft-st-3 .soft-st-title {
+  color: #fbbf24;
+}
+
+.soft-st-4 {
+  bottom: 24px;
+  left: 20px;
+  border-color: rgba(168, 85, 247, 0.85);
+}
+.soft-st-4 .soft-st-title {
+  color: #c084fc;
+}
+
+/* Digital Thread Mode Interactions */
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-1 {
+  transform: translateZ(-35px);
+}
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-2 {
+  transform: translateZ(18px);
+}
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-3 {
+  transform: translateZ(72px);
+}
+#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-label {
+  opacity: 1;
+}
+
+#soft-genealogy:checked ~ .sec-stage-wrapper .soft-station-node {
+  transform: translateZ(30px) rotateX(-72deg) rotateZ(55deg);
+  opacity: 0.35;
+}
+
+/* Takt Sync Mode Interactions */
+#soft-sync:checked ~ .sec-stage-wrapper .soft-station-node {
+  transform: translateZ(30px) rotateX(-54deg) rotateZ(18deg);
+}
+
+#soft-sync:checked ~ .sec-stage-wrapper .soft-flow-path {
+  border-color: #38bdf8;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.55);
+  animation-duration: 9s;
+}
+
+/* ========================================================
+   AEROSPACE IOT SENSING TECHNOLOGIES 3D CONSOLE (ZERO JS)
+   ======================================================== */
+.sens-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(62deg) rotateZ(-32deg);
+}
+
+#sens-rfid:checked ~ .sec-stage-wrapper .sens-world-3d {
+  transform: rotateX(58deg) rotateZ(-28deg);
+}
+
+#sens-ble:checked ~ .sec-stage-wrapper .sens-world-3d {
+  transform: rotateX(68deg) rotateZ(-45deg) scale(1.04);
+}
+
+#sens-env:checked ~ .sec-stage-wrapper .sens-world-3d {
+  transform: rotateX(72deg) rotateZ(-58deg) scale(1.08);
+}
+
+#sens-rfid:checked ~ .sec-stage-wrapper label[for="sens-rfid"],
+#sens-ble:checked ~ .sec-stage-wrapper label[for="sens-ble"],
+#sens-env:checked ~ .sec-stage-wrapper label[for="sens-env"] {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+/* 3D Physical Sensor Nodes */
+.sens-hardware-node {
+  position: absolute;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 8px;
-  font-weight: 700;
-  color: #ffffff;
   transform-style: preserve-3d;
   transition: all 0.5s ease;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
   padding: 4px;
   text-align: center;
 }
 
-.soft-st-title {
-  font-size: 8.5px;
-  font-weight: 800;
-  color: #38bdf8;
-  letter-spacing: 0.04em;
+.sens-rfid-tag {
+  top: 35px;
+  left: 35px;
+  width: 58px;
+  height: 36px;
+  background: rgba(14, 165, 233, 0.25);
+  border: 1.5px solid #38bdf8;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(24px);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
 }
 
-.soft-st-metric {
+.sens-ble-beacon {
+  top: 35px;
+  right: 35px;
+  width: 58px;
+  height: 36px;
+  background: rgba(168, 85, 247, 0.25);
+  border: 1.5px solid #c084fc;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(24px);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
+}
+
+.sens-env-pod {
+  bottom: 30px;
+  left: 35px;
+  width: 64px;
+  height: 42px;
+  background: rgba(16, 185, 129, 0.25);
+  border: 1.5px solid #34d399;
+  color: #ffffff;
   font-size: 7.5px;
-  color: #94a3b8;
-  margin-top: 2px;
+  font-weight: 700;
+  transform: translateZ(24px);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
 }
 
-.soft-st-1 { top: 15px; left: 15px; transform: translateZ(20px); }
-.soft-st-2 { top: 15px; right: 15px; transform: translateZ(20px); border-color: #a855f7; box-shadow: 0 0 12px rgba(168, 85, 247, 0.35); }
-.soft-st-2 .soft-st-title { color: #c084fc; }
-.soft-st-3 { bottom: 20px; right: 15px; transform: translateZ(20px); border-color: #10b981; box-shadow: 0 0 12px rgba(16, 185, 129, 0.35); }
-.soft-st-3 .soft-st-title { color: #34d399; }
-.soft-st-4 { bottom: 20px; left: 15px; transform: translateZ(20px); border-color: #f59e0b; box-shadow: 0 0 12px rgba(245, 158, 11, 0.35); }
-.soft-st-4 .soft-st-title { color: #fbbf24; }
+.sens-telemetry-unit {
+  bottom: 30px;
+  right: 35px;
+  width: 64px;
+  height: 42px;
+  background: rgba(245, 158, 11, 0.25);
+  border: 1.5px solid #fbbf24;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(24px);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+}
 
-/* Central Orchestration Core */
-.soft-core-engine {
+/* Central Gateway Collector */
+.sens-gateway-hub {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 68px;
-  height: 68px;
-  margin-top: -34px;
-  margin-left: -34px;
-  background: rgba(2, 132, 199, 0.3);
-  border: 2px solid #0284c7;
+  width: 66px;
+  height: 66px;
+  margin-top: -33px;
+  margin-left: -33px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 2px solid #38bdf8;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -3564,36 +3974,756 @@ button, input, select, textarea {
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.55);
 }
 
-/* Connecting Flow Path Orbit */
-.soft-flow-path {
+/* Radiating RF Lobes */
+.sens-rf-field {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 175px;
-  height: 175px;
-  margin-top: -87.5px;
-  margin-left: -87.5px;
-  border: 1.5px dashed rgba(56, 189, 248, 0.5);
+  width: 180px;
+  height: 180px;
+  margin-top: -90px;
+  margin-left: -90px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.55);
   border-radius: 50%;
   transform-style: preserve-3d;
-  transform: translateZ(12px);
+  transform: translateZ(14px);
+  animation: radarSweepBeam 12s linear infinite;
+}
+
+#sens-ble:checked ~ .sec-stage-wrapper .sens-rf-field {
+  border-color: rgba(192, 132, 252, 0.7);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.35);
+}
+
+#sens-env:checked ~ .sec-stage-wrapper .sens-rf-field {
+  border-color: rgba(52, 211, 153, 0.7);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+}
+
+/* ========================================================
+   TOP INDUSTRY PLAYERS & CASE STUDIES EXTENSIONS
+   ======================================================== */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.player-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.player-card:hover {
+  border-color: var(--brand-blue-border);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.player-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-blue);
+  flex-shrink: 0;
+}
+
+.player-name {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.35;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+@media (max-width: 960px) {
+  .players-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ========================================================
+   SPACE OPERATIONS DEPLOYMENT APPLICATIONS 3D CONSOLE (ZERO JS)
+   ======================================================== */
+.ops-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(60deg) rotateZ(-30deg);
+}
+
+#ops-sif:checked ~ .sec-stage-wrapper .ops-world-3d {
+  transform: rotateX(56deg) rotateZ(-25deg);
+}
+
+#ops-launch:checked ~ .sec-stage-wrapper .ops-world-3d {
+  transform: rotateX(66deg) rotateZ(-48deg) scale(1.05);
+}
+
+#ops-clean:checked ~ .sec-stage-wrapper .ops-world-3d {
+  transform: rotateX(72deg) rotateZ(-60deg) scale(1.08);
+}
+
+#ops-sif:checked ~ .sec-stage-wrapper label[for="ops-sif"],
+#ops-launch:checked ~ .sec-stage-wrapper label[for="ops-launch"],
+#ops-clean:checked ~ .sec-stage-wrapper label[for="ops-clean"] {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+/* 3D Facility Elements */
+.ops-facility-node {
+  position: absolute;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  padding: 4px;
+  text-align: center;
+}
+
+.ops-sif-bay {
+  top: 30px;
+  left: 30px;
+  width: 68px;
+  height: 44px;
+  background: rgba(14, 165, 233, 0.25);
+  border: 1.5px solid #38bdf8;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.ops-launch-pad {
+  top: 30px;
+  right: 30px;
+  width: 68px;
+  height: 44px;
+  background: rgba(245, 158, 11, 0.25);
+  border: 1.5px solid #fbbf24;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+}
+
+.ops-cleanroom-zone {
+  bottom: 25px;
+  left: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(16, 185, 129, 0.25);
+  border: 1.5px solid #34d399;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+}
+
+.ops-mro-hub {
+  bottom: 25px;
+  right: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(168, 85, 247, 0.25);
+  border: 1.5px solid #c084fc;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
+}
+
+/* Central Mission Control Core */
+.ops-central-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  margin-top: -36px;
+  margin-left: -36px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: translateZ(36px);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.55);
+}
+
+/* Exclusion Perimeter & Zone Rings */
+.ops-zone-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 190px;
+  margin-top: -95px;
+  margin-left: -95px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.55);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(16px);
   animation: radarSweepBeam 14s linear infinite;
 }
 
-#soft-sync:checked ~ .sec-stage-wrapper .soft-flow-path {
-  border-color: rgba(16, 185, 129, 0.75);
-  box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);
+#ops-launch:checked ~ .sec-stage-wrapper .ops-zone-ring {
+  border-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
 }
 
-#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-1 {
-  transform: translateZ(-35px);
+#ops-clean:checked ~ .sec-stage-wrapper .ops-zone-ring {
+  border-color: rgba(52, 211, 153, 0.7);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
 }
-#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-2 {
-  transform: translateZ(12px);
+
+#ops-sif:checked ~ .sec-stage-wrapper .ops-sif-bay,
+#ops-launch:checked ~ .sec-stage-wrapper .ops-launch-pad,
+#ops-clean:checked ~ .sec-stage-wrapper .ops-cleanroom-zone {
+  transform: translateZ(42px) scale(1.12);
+  border-color: #ffffff;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.8);
 }
-#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-plane-3 {
-  transform: translateZ(62px);
+
+/* ========================================================
+   TECHNICAL IMPLEMENTATION RESOURCES 3D CONSOLE (ZERO JS)
+   ======================================================== */
+.tech-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(60deg) rotateZ(-32deg);
 }
-#soft-genealogy:checked ~ .sec-stage-wrapper .genealogy-label {
-  opacity: 1;
+
+#tech-api:checked ~ .sec-stage-wrapper .tech-world-3d {
+  transform: rotateX(56deg) rotateZ(-26deg);
+}
+
+#tech-schem:checked ~ .sec-stage-wrapper .tech-world-3d {
+  transform: rotateX(66deg) rotateZ(-48deg) scale(1.05);
+}
+
+#tech-mesh:checked ~ .sec-stage-wrapper .tech-world-3d {
+  transform: rotateX(72deg) rotateZ(-60deg) scale(1.08);
+}
+
+#tech-api:checked ~ .sec-stage-wrapper label[for="tech-api"],
+#tech-schem:checked ~ .sec-stage-wrapper label[for="tech-schem"],
+#tech-mesh:checked ~ .sec-stage-wrapper label[for="tech-mesh"] {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+/* 3D Technical Topology Nodes */
+.tech-topo-node {
+  position: absolute;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  padding: 4px;
+  text-align: center;
+}
+
+.tech-api-node {
+  top: 30px;
+  left: 30px;
+  width: 70px;
+  height: 44px;
+  background: rgba(14, 165, 233, 0.25);
+  border: 1.5px solid #38bdf8;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.tech-schem-node {
+  top: 30px;
+  right: 30px;
+  width: 70px;
+  height: 44px;
+  background: rgba(245, 158, 11, 0.25);
+  border: 1.5px solid #fbbf24;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+}
+
+.tech-mesh-node {
+  bottom: 25px;
+  left: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(16, 185, 129, 0.25);
+  border: 1.5px solid #34d399;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+}
+
+.tech-edge-node {
+  bottom: 25px;
+  right: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(168, 85, 247, 0.25);
+  border: 1.5px solid #c084fc;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
+}
+
+/* Central API / Telemetry Engine Core */
+.tech-central-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 74px;
+  height: 74px;
+  margin-top: -37px;
+  margin-left: -37px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: translateZ(36px);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.55);
+}
+
+/* Encrypted Data Bus Ring */
+.tech-bus-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 190px;
+  margin-top: -95px;
+  margin-left: -95px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.55);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(16px);
+  animation: radarSweepBeam 14s linear infinite;
+}
+
+#tech-schem:checked ~ .sec-stage-wrapper .tech-bus-ring {
+  border-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+}
+
+#tech-mesh:checked ~ .sec-stage-wrapper .tech-bus-ring {
+  border-color: rgba(52, 211, 153, 0.7);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+}
+
+#tech-api:checked ~ .sec-stage-wrapper .tech-api-node,
+#tech-schem:checked ~ .sec-stage-wrapper .tech-schem-node,
+#tech-mesh:checked ~ .sec-stage-wrapper .tech-mesh-node {
+  transform: translateZ(42px) scale(1.12);
+  border-color: #ffffff;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.8);
+}
+
+/* ========================================================
+   ABOUT AEROMFG AI 3D CONSOLE (ZERO JS)
+   ======================================================== */
+.about-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(60deg) rotateZ(-30deg);
+}
+
+#about-pedigree:checked ~ .sec-stage-wrapper .about-world-3d {
+  transform: rotateX(56deg) rotateZ(-24deg);
+}
+
+#about-security:checked ~ .sec-stage-wrapper .about-world-3d {
+  transform: rotateX(66deg) rotateZ(-46deg) scale(1.05);
+}
+
+#about-enterprise:checked ~ .sec-stage-wrapper .about-world-3d {
+  transform: rotateX(72deg) rotateZ(-58deg) scale(1.08);
+}
+
+#about-pedigree:checked ~ .sec-stage-wrapper label[for="about-pedigree"],
+#about-security:checked ~ .sec-stage-wrapper label[for="about-security"],
+#about-enterprise:checked ~ .sec-stage-wrapper label[for="about-enterprise"] {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+/* 3D Institutional Nodes */
+.about-inst-node {
+  position: absolute;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  padding: 4px;
+  text-align: center;
+}
+
+.about-aperture-node {
+  top: 30px;
+  left: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(14, 165, 233, 0.25);
+  border: 1.5px solid #38bdf8;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.about-gao-node {
+  top: 30px;
+  right: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(245, 158, 11, 0.25);
+  border: 1.5px solid #fbbf24;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+}
+
+.about-phd-node {
+  bottom: 25px;
+  left: 30px;
+  width: 74px;
+  height: 44px;
+  background: rgba(16, 185, 129, 0.25);
+  border: 1.5px solid #34d399;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+}
+
+.about-as9100-node {
+  bottom: 25px;
+  right: 30px;
+  width: 74px;
+  height: 44px;
+  background: rgba(168, 85, 247, 0.25);
+  border: 1.5px solid #c084fc;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
+}
+
+/* Central Institutional Command Core */
+.about-central-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 74px;
+  height: 74px;
+  margin-top: -37px;
+  margin-left: -37px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: translateZ(36px);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.55);
+}
+
+/* Institutional Authority Ring */
+.about-pedigree-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 190px;
+  margin-top: -95px;
+  margin-left: -95px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.55);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(16px);
+  animation: radarSweepBeam 14s linear infinite;
+}
+
+#about-security:checked ~ .sec-stage-wrapper .about-pedigree-ring {
+  border-color: rgba(52, 211, 153, 0.7);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+}
+
+#about-enterprise:checked ~ .sec-stage-wrapper .about-pedigree-ring {
+  border-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+}
+
+#about-pedigree:checked ~ .sec-stage-wrapper .about-aperture-node,
+#about-security:checked ~ .sec-stage-wrapper .about-phd-node,
+#about-enterprise:checked ~ .sec-stage-wrapper .about-gao-node {
+  transform: translateZ(42px) scale(1.12);
+  border-color: #ffffff;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.8);
+}
+
+/* ========================================================
+   CONTACT AEROMFG AI 3D CONSOLE (ZERO JS)
+   ======================================================== */
+.contact-world-3d {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotateX(60deg) rotateZ(-30deg);
+}
+
+#contact-inquiry:checked ~ .sec-stage-wrapper .contact-world-3d {
+  transform: rotateX(56deg) rotateZ(-24deg);
+}
+
+#contact-deploy:checked ~ .sec-stage-wrapper .contact-world-3d {
+  transform: rotateX(66deg) rotateZ(-46deg) scale(1.05);
+}
+
+#contact-feasibility:checked ~ .sec-stage-wrapper .contact-world-3d {
+  transform: rotateX(72deg) rotateZ(-58deg) scale(1.08);
+}
+
+#contact-inquiry:checked ~ .sec-stage-wrapper label[for="contact-inquiry"],
+#contact-deploy:checked ~ .sec-stage-wrapper label[for="contact-deploy"],
+#contact-feasibility:checked ~ .sec-stage-wrapper label[for="contact-feasibility"] {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+
+/* 3D Contact & Support Nodes */
+.contact-chan-node {
+  position: absolute;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  padding: 4px;
+  text-align: center;
+}
+
+.contact-consult-node {
+  top: 30px;
+  left: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(14, 165, 233, 0.25);
+  border: 1.5px solid #38bdf8;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.contact-field-node {
+  top: 30px;
+  right: 30px;
+  width: 72px;
+  height: 44px;
+  background: rgba(245, 158, 11, 0.25);
+  border: 1.5px solid #fbbf24;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+}
+
+.contact-survey-node {
+  bottom: 25px;
+  left: 30px;
+  width: 74px;
+  height: 44px;
+  background: rgba(16, 185, 129, 0.25);
+  border: 1.5px solid #34d399;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+}
+
+.contact-support-node {
+  bottom: 25px;
+  right: 30px;
+  width: 74px;
+  height: 44px;
+  background: rgba(168, 85, 247, 0.25);
+  border: 1.5px solid #c084fc;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
+  transform: translateZ(26px);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
+}
+
+/* Central Mission Dispatch Core */
+.contact-central-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 74px;
+  height: 74px;
+  margin-top: -37px;
+  margin-left: -37px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 800;
+  color: #38bdf8;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: translateZ(36px);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.55);
+}
+
+/* Support Perimeter Ring */
+.contact-support-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 190px;
+  margin-top: -95px;
+  margin-left: -95px;
+  border: 1.5px dashed rgba(56, 189, 248, 0.55);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(16px);
+  animation: radarSweepBeam 14s linear infinite;
+}
+
+#contact-deploy:checked ~ .sec-stage-wrapper .contact-support-ring {
+  border-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+}
+
+#contact-feasibility:checked ~ .sec-stage-wrapper .contact-support-ring {
+  border-color: rgba(52, 211, 153, 0.7);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+}
+
+#contact-inquiry:checked ~ .sec-stage-wrapper .contact-consult-node,
+#contact-deploy:checked ~ .sec-stage-wrapper .contact-field-node,
+#contact-feasibility:checked ~ .sec-stage-wrapper .contact-survey-node {
+  transform: translateZ(42px) scale(1.12);
+  border-color: #ffffff;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.8);
 }

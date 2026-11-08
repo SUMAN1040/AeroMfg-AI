@@ -65,11 +65,6 @@
   <!-- SUBPAGE HERO SECTION -->
   <section class="subpage-hero">
     <div class="container">
-      <nav class="breadcrumb-nav">
-        <a href="index.html">Home</a>
-        <span class="sep">/</span>
-        <span>Technical Resources</span>
-      </nav>
 
       <div class="subpage-tagline">
         <span class="badge-dot" style="background: var(--brand-emerald);"></span>
@@ -161,17 +156,14 @@
         <p>
           Queries real-time calibration compliance for any tool or GSE fixture. Returns NIST cert numbers, remaining allowable cycles, and active lockout flag.
         </p>
-        <div class="telemetry-code-block" style="font-size: 11px; margin: 8px 0;">
-HTTP 200 OK
-{
-  "tool_id": "TW-500-0192",
-  "status": "CALIBRATED",
-  "cert_date": "2026-10-14",
-  "expiry_date": "2027-01-14",
-  "cycles_used": 1420,
-  "cycles_limit": 5000,
-  "station_lockout": false
-}
+        <div style="background: var(--bg-surface-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 16px; margin-top: 14px;">
+          <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11.5px; color: var(--brand-blue); margin-bottom: 6px;">
+            <span>STATUS: CALIBRATED</span>
+            <span>CYCLES: 1,420 / 5,000</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-body); margin: 0; line-height: 1.55;">
+            Verified NIST calibration with station lockout disabled, returning certified inspection status and active expiry schedule.
+          </p>
         </div>
       </div>
 
@@ -183,16 +175,14 @@ HTTP 200 OK
         <p>
           High-throughput edge ingestion endpoint receiving batched UWB tag TDoA coordinates. Evaluates robot safety buffers in sub-15ms.
         </p>
-        <div class="telemetry-code-block" style="font-size: 11px; margin: 8px 0;">
-POST /api/v1/spatial/ingest
-{
-  "batch_size": 25,
-  "gateway_id": "GW-BAY04-NORTH",
-  "vectors": [
-    { "badge": "B-0842", "x": 48.21, "y": 18.09, "z": 2.45, "cov": 0.04 }
-  ],
-  "clock_ptp_ns": 1730547738000000000
-}
+        <div style="background: var(--bg-surface-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 16px; margin-top: 14px;">
+          <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11.5px; color: var(--brand-blue); margin-bottom: 6px;">
+            <span>INGESTION: BATCH 25</span>
+            <span>LATENCY: &lt; 15 MS</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-body); margin: 0; line-height: 1.55;">
+            High-throughput edge ingestion receiving batched UWB tag TDoA coordinates with sub-nanosecond PTP synchronization.
+          </p>
         </div>
       </div>
 
@@ -204,15 +194,14 @@ POST /api/v1/spatial/ingest
         <p>
           Validates cryptographic Merkle root hash for any subassembly or tail number against the immutable distributed ledger.
         </p>
-        <div class="telemetry-code-block" style="font-size: 11px; margin: 8px 0;">
-HTTP 200 OK
-{
-  "serial_number": "SN-AERO-9912",
-  "merkle_valid": true,
-  "root_hash": "c8192847561029384bbfa124...",
-  "faa_8130_released": true,
-  "inspector_id": "FAA-DARA-849201"
-}
+        <div style="background: var(--bg-surface-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 16px; margin-top: 14px;">
+          <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11.5px; color: var(--brand-blue); margin-bottom: 6px;">
+            <span>MERKLE ROOT: VERIFIED</span>
+            <span>FAA 8130: RELEASED</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-body); margin: 0; line-height: 1.55;">
+            Validates cryptographic Merkle root hash for any subassembly or tail number against the immutable distributed ledger.
+          </p>
         </div>
       </div>
     </div>
@@ -337,7 +326,7 @@ HTTP 200 OK
             <li><a href="about-aeromfgai-ai.html">About AeroMfg AI &amp; Heritage</a></li>
             <li><a href="contact-aeromfgai-ai.html">Contact AeroMfg AI</a></li>
             <li><a href="index.html#simulator">Digital Twin Simulator</a></li>
-            <li><a href="index.html#case-studies">11 PSR Benchmarks</a></li>
+            <li><a href="aerospace-iot-sensing-technologies.html#case-studies">11 PSR Benchmarks</a></li>
           </ul>
         </div>
       </div>
