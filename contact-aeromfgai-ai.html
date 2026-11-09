@@ -290,125 +290,103 @@
           </article>
         </div>
 
-        <!-- Interactive Horizontal Scroll Pipeline Track (Zero JS, Pure CSS Scroll Snap) -->
-        <div class="horizontal-scroll-wrap">
-          <!-- Horizontal Scroll Header & Navigation Rail -->
-          <div class="horizontal-scroll-header-bar">
-            <div class="horizontal-scroll-hint">
-              <span class="sec-pulse-dot" style="background: var(--brand-blue);" aria-hidden="true"></span>
-              <span>SIX-STAGE TURNKEY DEPLOYMENT PIPELINE</span>
+        <!-- 6 Turnkey Deployment Pipeline Stages (Balanced 3x2 Grid) -->
+        <div class="module-grid-3">
+          <!-- Stage 1 -->
+          <article class="module-card" id="deploy-stage-1">
+            <div class="horizontal-scroll-card-step">
+              <span>Phase 01</span>
+              <span class="step-num-badge">01</span>
             </div>
-            <div class="horizontal-nav-pills">
-              <a href="#deploy-stage-1" class="h-scroll-pill">01 LiDAR Mapping</a>
-              <a href="#deploy-stage-2" class="h-scroll-pill">02 Calibration</a>
-              <a href="#deploy-stage-3" class="h-scroll-pill">03 mTLS Security</a>
-              <a href="#deploy-stage-4" class="h-scroll-pill">04 Countdown Ops</a>
-              <a href="#deploy-stage-5" class="h-scroll-pill">05 Enablement</a>
-              <a href="#deploy-stage-6" class="h-scroll-pill">06 Optimization</a>
+            <div class="module-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
             </div>
-          </div>
+            <h3 class="module-card-title">3D LiDAR Site Mapping</h3>
+            <p class="module-card-text">
+              Conducting spatial laser surveys to generate accurate antenna mounting schematics and optimal line-of-sight gateway layouts.
+            </p>
+            <div class="module-card-footer">Phase 01 &bull; Spatial Survey</div>
+          </article>
 
-          <!-- Interactive Horizontal Scroll Track (Scroll Snap Enabled) -->
-          <div class="horizontal-scroll-track" tabindex="0" role="region" aria-label="System deployment engineering stages horizontal scroller">
-            <!-- Stage 1 -->
-            <article class="horizontal-scroll-card" id="deploy-stage-1">
-              <div class="horizontal-scroll-card-step">
-                <span>Phase 01</span>
-                <span class="step-num-badge">01</span>
-              </div>
-              <div class="module-card-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
-              </div>
-              <h3 class="module-card-title">3D LiDAR Site Mapping</h3>
-              <p class="module-card-text">
-                Conducting spatial laser surveys to generate accurate antenna mounting schematics and optimal line-of-sight gateway layouts.
-              </p>
-            </article>
+          <!-- Stage 2 -->
+          <article class="module-card" id="deploy-stage-2">
+            <div class="horizontal-scroll-card-step">
+              <span>Phase 02</span>
+              <span class="step-num-badge">02</span>
+            </div>
+            <div class="module-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3 class="module-card-title">Cleanroom Node Calibration</h3>
+            <p class="module-card-text">
+              NIST-traceable calibration of particulate counters and humidity sensors for ISO 14644-1 Class 4 and 5 cleanroom compliance.
+            </p>
+            <div class="module-card-footer">Phase 02 &bull; NIST Calibration</div>
+          </article>
 
-            <!-- Stage 2 -->
-            <article class="horizontal-scroll-card" id="deploy-stage-2">
-              <div class="horizontal-scroll-card-step">
-                <span>Phase 02</span>
-                <span class="step-num-badge">02</span>
-              </div>
-              <div class="module-card-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-              </div>
-              <h3 class="module-card-title">Cleanroom Node Calibration</h3>
-              <p class="module-card-text">
-                NIST-traceable calibration of particulate counters and humidity sensors for ISO 14644-1 Class 4 and 5 cleanroom compliance.
-              </p>
-            </article>
+          <!-- Stage 3 -->
+          <article class="module-card" id="deploy-stage-3">
+            <div class="horizontal-scroll-card-step">
+              <span>Phase 03</span>
+              <span class="step-num-badge">03</span>
+            </div>
+            <div class="module-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="module-card-title">Cryptographic mTLS Enclaves</h3>
+            <p class="module-card-text">
+              Hardware security module authentication and end-to-end encryption securing telemetry against industrial eavesdropping.
+            </p>
+            <div class="module-card-footer">Phase 03 &bull; HSM Enclaves</div>
+          </article>
 
-            <!-- Stage 3 -->
-            <article class="horizontal-scroll-card" id="deploy-stage-3">
-              <div class="horizontal-scroll-card-step">
-                <span>Phase 03</span>
-                <span class="step-num-badge">03</span>
-              </div>
-              <div class="module-card-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </div>
-              <h3 class="module-card-title">Cryptographic mTLS Enclaves</h3>
-              <p class="module-card-text">
-                Hardware security module authentication and end-to-end encryption securing telemetry against industrial eavesdropping.
-              </p>
-            </article>
+          <!-- Stage 4 -->
+          <article class="module-card" id="deploy-stage-4">
+            <div class="horizontal-scroll-card-step">
+              <span>Phase 04</span>
+              <span class="step-num-badge">04</span>
+            </div>
+            <div class="module-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3 class="module-card-title">24/7 Mission Countdown Coverage</h3>
+            <p class="module-card-text">
+              Dedicated engineering dispatch available around the clock during flight-critical launch countdowns and payload rollouts.
+            </p>
+            <div class="module-card-footer">Phase 04 &bull; Launch Support</div>
+          </article>
 
-            <!-- Stage 4 -->
-            <article class="horizontal-scroll-card" id="deploy-stage-4">
-              <div class="horizontal-scroll-card-step">
-                <span>Phase 04</span>
-                <span class="step-num-badge">04</span>
-              </div>
-              <div class="module-card-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <h3 class="module-card-title">24/7 Mission Countdown Coverage</h3>
-              <p class="module-card-text">
-                Dedicated engineering dispatch available around the clock during flight-critical launch countdowns and payload rollouts.
-              </p>
-            </article>
+          <!-- Stage 5 -->
+          <article class="module-card" id="deploy-stage-5">
+            <div class="horizontal-scroll-card-step">
+              <span>Phase 05</span>
+              <span class="step-num-badge">05</span>
+            </div>
+            <div class="module-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="module-card-title">Facility Personnel Enablement</h3>
+            <p class="module-card-text">
+              Comprehensive technical training for manufacturing leads and floor technicians to ensure rapid, friction-free platform adoption.
+            </p>
+            <div class="module-card-footer">Phase 05 &bull; Workforce Training</div>
+          </article>
 
-            <!-- Stage 5 -->
-            <article class="horizontal-scroll-card" id="deploy-stage-5">
-              <div class="horizontal-scroll-card-step">
-                <span>Phase 05</span>
-                <span class="step-num-badge">05</span>
-              </div>
-              <div class="module-card-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <h3 class="module-card-title">Facility Personnel Enablement</h3>
-              <p class="module-card-text">
-                Comprehensive technical training for manufacturing leads and floor technicians to ensure rapid, friction-free platform adoption.
-              </p>
-            </article>
-
-            <!-- Stage 6 -->
-            <article class="horizontal-scroll-card" id="deploy-stage-6">
-              <div class="horizontal-scroll-card-step">
-                <span>Phase 06</span>
-                <span class="step-num-badge">06</span>
-              </div>
-              <div class="module-card-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </div>
-              <h3 class="module-card-title">Post-Commissioning Optimization</h3>
-              <p class="module-card-text">
-                Iterative algorithmic tuning as production progresses from structural sub-assembly to fairing encapsulation.
-              </p>
-            </article>
-          </div>
-
-          <!-- Horizontal Scroll Footer Bar -->
-          <div class="horizontal-scroll-footer-bar">
-            <span class="h-scroll-hint-text">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              <span>Scroll or swipe horizontally to navigate through all 6 deployment stages</span>
-            </span>
-            <span style="font-weight: 700; color: var(--brand-blue);">6 COMMISSIONING PHASES</span>
-          </div>
+          <!-- Stage 6 -->
+          <article class="module-card" id="deploy-stage-6">
+            <div class="horizontal-scroll-card-step">
+              <span>Phase 06</span>
+              <span class="step-num-badge">06</span>
+            </div>
+            <div class="module-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="module-card-title">Post-Commissioning Optimization</h3>
+            <p class="module-card-text">
+              Iterative algorithmic tuning as production progresses from structural sub-assembly to fairing encapsulation.
+            </p>
+            <div class="module-card-footer">Phase 06 &bull; DFM Tuning</div>
+          </article>
         </div>
       </div>
     </section>
