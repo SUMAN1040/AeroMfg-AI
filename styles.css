@@ -69,6 +69,13 @@
 html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -79,6 +86,8 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 a {
@@ -5871,11 +5880,14 @@ button, input, select, textarea {
 
 .scroll-flip-stage {
   position: sticky;
-  top: 88px;
+  top: 0;
+  min-height: 100vh;
+  padding-top: 64px;
   perspective: 1800px;
   display: grid;
   grid-template-columns: 1fr;
-  align-items: start;
+  align-items: center;
+  align-content: center;
 }
 
 .scroll-flip-card {
