@@ -56,7 +56,7 @@
   --radius-lg: 14px;
   --radius-full: 9999px;
 
-  --container-max: min(1680px, 94vw);
+  --container-max: min(1840px, 97.5vw);
 }
 
 /* CSS Reset & Base */
@@ -75,8 +75,8 @@ body {
   background-color: var(--bg-base);
   color: var(--text-body);
   font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -105,18 +105,18 @@ button, input, select, textarea {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 14px;
 }
 
 @media (min-width: 1200px) {
   .container {
-    padding: 0 40px;
+    padding: 0 18px;
   }
 }
 
 @media (min-width: 1600px) {
   .container {
-    padding: 0 52px;
+    padding: 0 20px;
   }
 }
 
@@ -150,7 +150,7 @@ button, input, select, textarea {
 
 .section-heading-lg {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--text-heading);
   line-height: 1.2;
@@ -159,7 +159,7 @@ button, input, select, textarea {
 }
 
 .section-summary {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--text-muted);
   max-width: 1040px;
   line-height: 1.65;
@@ -1831,8 +1831,8 @@ button, input, select, textarea {
   grid-template-columns: 1fr 1fr;
   gap: 44px;
   margin-bottom: 40px;
-  font-size: 15.5px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.72;
   color: var(--text-body);
 }
 
@@ -1882,18 +1882,18 @@ button, input, select, textarea {
 
 .module-card-title {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.28rem;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   line-height: 1.3;
   min-height: 2.6em;
 }
 
 .module-card-text {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--text-body);
-  line-height: 1.55;
+  line-height: 1.65;
   margin-bottom: 16px;
   flex-grow: 1;
 }
@@ -5522,9 +5522,625 @@ button, input, select, textarea {
   }
 }
 
+/* ==========================================================================
+   3D CENTER-STAGE AUTO CAROUSEL — CSS-only, 3-card, 3s cycle, zero JS
+   ONE card is fully center & prominent; other two push back behind it in 3D
+   Cycle order: CENTER → RIGHT-BACK → LEFT-BACK (9s total, 3s each phase)
+   ========================================================================== */
+
+/* Stage: perspective + fixed height for absolutely positioned cards */
+.cs3d-stage {
+  position: relative;
+  perspective: 1600px;
+  overflow: hidden;
+  min-height: 500px;
+  padding-bottom: 60px;
+  width: 100%;
+}
+
+/* Track: 3D stacking context */
+.cs3d-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* All cards: absolutely centered, wide */
+.cs3d-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(780px, 92vw);
+  margin-left: calc(-1 * min(390px, 46vw));
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 32px 36px;
+  box-shadow: var(--shadow-card);
+  transform-style: preserve-3d;
+  animation-name: cs3d-spin;
+  animation-duration: 9s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  box-sizing: border-box;
+}
+
+/* Staggered: exactly one card is CENTER at any time */
+.cs3d-card-1 { animation-delay: 0s; }
+.cs3d-card-2 { animation-delay: -3s; }
+.cs3d-card-3 { animation-delay: -6s; }
+
+/* 9s cycle: 0-33% CENTER, 33-66% RIGHT-BACK, 66-100% LEFT-BACK */
+@keyframes cs3d-spin {
+  0% {
+    transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+    box-shadow: 0 24px 56px -12px rgba(2, 132, 199, 0.22),
+                0 0 0 2px #bfdbfe,
+                0 4px 16px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+  28% {
+    transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+    box-shadow: 0 24px 56px -12px rgba(2, 132, 199, 0.22),
+                0 0 0 2px #bfdbfe,
+                0 4px 16px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+  33% {
+    transform: translateX(42%) translateZ(-240px) rotateY(-20deg) scale(0.74);
+    opacity: 0.42;
+    filter: brightness(0.78);
+    box-shadow: var(--shadow-card);
+    z-index: 1;
+  }
+  38% {
+    transform: translateX(42%) translateZ(-240px) rotateY(-20deg) scale(0.74);
+    opacity: 0.42;
+    filter: brightness(0.78);
+    box-shadow: var(--shadow-card);
+    z-index: 1;
+  }
+  60% {
+    transform: translateX(42%) translateZ(-240px) rotateY(-20deg) scale(0.74);
+    opacity: 0.42;
+    filter: brightness(0.78);
+    box-shadow: var(--shadow-card);
+    z-index: 1;
+  }
+  66% {
+    transform: translateX(-42%) translateZ(-240px) rotateY(20deg) scale(0.74);
+    opacity: 0.42;
+    filter: brightness(0.78);
+    box-shadow: var(--shadow-card);
+    z-index: 1;
+  }
+  71% {
+    transform: translateX(-42%) translateZ(-240px) rotateY(20deg) scale(0.74);
+    opacity: 0.42;
+    filter: brightness(0.78);
+    box-shadow: var(--shadow-card);
+    z-index: 1;
+  }
+  93% {
+    transform: translateX(-42%) translateZ(-240px) rotateY(20deg) scale(0.74);
+    opacity: 0.42;
+    filter: brightness(0.78);
+    box-shadow: var(--shadow-card);
+    z-index: 1;
+  }
+  100% {
+    transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+    box-shadow: 0 24px 56px -12px rgba(2, 132, 199, 0.22),
+                0 0 0 2px #bfdbfe,
+                0 4px 16px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+}
+
+/* Result box */
+.cs3d-result-box {
+  background: var(--bg-subtle);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* Card title */
+.cs3d-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 16px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Animated dots in sync */
+.cs3d-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.cs3d-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  animation-name: cs3d-dot-pulse;
+  animation-duration: 9s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.cs3d-dot-1 { animation-delay: 0s; }
+.cs3d-dot-2 { animation-delay: -3s; }
+.cs3d-dot-3 { animation-delay: -6s; }
+
+@keyframes cs3d-dot-pulse {
+  0%,  28% { background: #0284c7; transform: scale(1.5); }
+  33%, 100% { background: #cbd5e1; transform: scale(1); }
+}
+
+/* Pause on hover */
+.cs3d-stage:hover .cs3d-card,
+.cs3d-stage:hover .cs3d-dot {
+  animation-play-state: paused;
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+  .cs3d-stage { min-height: 580px; }
+  .cs3d-card  { padding: 24px 20px; }
+}
+
+@media (max-width: 600px) {
+  .cs3d-stage { overflow: visible; min-height: unset; padding-bottom: 0; }
+  .cs3d-track { display: flex; flex-direction: column; gap: 20px; }
+  .cs3d-card {
+    position: static; width: 100%; margin-left: 0;
+    animation: none !important; transform: none !important;
+    opacity: 1 !important; filter: none !important;
+    box-shadow: var(--shadow-card) !important;
+  }
+  .cs3d-dots { position: static; margin-top: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs3d-card, .cs3d-dot { animation: none !important; }
+  .cs3d-stage { overflow: visible; min-height: unset; }
+  .cs3d-track { display: flex; flex-direction: column; gap: 20px; }
+  .cs3d-card {
+    position: static; width: 100%; margin-left: 0;
+    transform: none !important; opacity: 1 !important; filter: none !important;
+  }
+  .cs3d-dots { display: none; }
+}
+
+/* ==========================================================================
+   LOGO MARQUEE — infinite left-to-right scroll, reverses on scroll-up
+   ========================================================================== */
+
+.logo-marquee-wrap {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding: 32px 0 42px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  user-select: none;
+}
+
+.logo-marquee-group {
+  display: flex;
+  gap: 28px;
+  flex-shrink: 0;
+  min-width: 100%;
+  padding-right: 28px;
+  will-change: transform;
+  animation: logoScrollLTR 36s linear infinite;
+}
+
+/* Default direction: left → right */
+@keyframes logoScrollLTR {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* Reverse direction when .scroll-reverse is on the wrap */
+.logo-marquee-wrap.scroll-reverse .logo-marquee-group {
+  animation-name: logoScrollRTL;
+}
+
+@keyframes logoScrollRTL {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+/* Pause on hover */
+.logo-marquee-wrap:hover .logo-marquee-group {
+  animation-play-state: paused;
+}
+
+/* Each company pill */
+.logo-pill {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 72px;
+  padding: 16px 38px 16px 18px;
+  min-height: 108px;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.logo-pill:hover {
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.16);
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+/* Official company SVG logo mark */
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.14);
+}
+
+.logo-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Company abbreviation badge (fallback) */
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+/* Company name text */
+.logo-pill-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.015em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-group { animation: none; }
+  .logo-marquee-wrap {
+    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .logo-marquee-group { min-width: unset; flex-wrap: wrap; }
+}
+
 /* Global utility classes */
 .text-center {
   text-align: center !important;
+}
+
+/* ==========================================================================
+   3D VERTICAL SCROLL-FLIP CARD DECK (SECTIONS 2-4)
+   ========================================================================== */
+
+.scroll-flip-track {
+  position: relative;
+  min-height: 230vh;
+}
+
+.scroll-flip-stage {
+  position: sticky;
+  top: 88px;
+  perspective: 1800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.scroll-flip-card {
+  grid-area: 1 / 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
+  pointer-events: none;
+  opacity: 0;
+  transform: rotateX(-88deg) scale(0.95);
+}
+
+.scroll-flip-card.is-active {
+  pointer-events: auto;
+  opacity: 1;
+  transform: rotateX(0deg) scale(1);
+  z-index: 5;
+}
+
+.scroll-flip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.scroll-flip-step {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  background: var(--brand-blue-subtle);
+  border: 1px solid var(--brand-blue-border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .scroll-flip-track {
+    min-height: auto;
+  }
+  .scroll-flip-stage {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    perspective: none;
+  }
+  .scroll-flip-card {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    padding: 24px 20px;
+  }
+}
+
+/* ==========================================================================
+   3D FLOATING WATERBALL GLASS TANK (APPLICABLE STANDARDS AND REGULATIONS)
+   ========================================================================== */
+
+#standards-regulations {
+  position: relative;
+  min-height: 360px;
+  padding: 56px 0;
+  background: #ffffff;
+}
+
+.standards-headline-layer {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.standards-glass-tank {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.std-orb-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 116px;
+  height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  z-index: 2;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.std-orb-item:hover,
+.std-orb-item:focus-within {
+  z-index: 50;
+}
+
+/* 3D Waterball Sphere */
+.std-orb-ball {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 241, 244, 0.92) 36%, rgba(241, 245, 249, 0.94) 72%, rgba(226, 232, 240, 0.98) 100%);
+  border: 1.5px solid rgba(225, 29, 72, 0.2);
+  box-shadow:
+    inset -10px -14px 22px rgba(15, 23, 42, 0.14),
+    inset 8px 10px 18px rgba(255, 255, 255, 0.96),
+    0 12px 24px rgba(15, 23, 42, 0.12),
+    0 3px 10px rgba(225, 29, 72, 0.08);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease, border-color 0.25s ease;
+}
+
+/* Specular highlight on top-left of 3D ball */
+.std-orb-ball::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  width: 30px;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0) 76%);
+  transform: rotate(-28deg);
+  pointer-events: none;
+}
+
+.std-orb-item:hover .std-orb-ball,
+.std-orb-item:focus-within .std-orb-ball {
+  transform: scale(1.14);
+  border-color: rgba(225, 29, 72, 0.6);
+  background:
+    radial-gradient(circle at 30% 24%, #ffffff 0%, #fff1f2 38%, #ffe4e6 74%, #fecdd3 100%);
+  box-shadow:
+    inset -10px -14px 22px rgba(190, 18, 60, 0.16),
+    inset 8px 10px 18px rgba(255, 255, 255, 0.98),
+    0 20px 36px rgba(225, 29, 72, 0.24),
+    0 6px 14px rgba(15, 23, 42, 0.12);
+}
+
+.std-orb-code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: #be123c;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+  word-break: break-word;
+}
+
+/* Floating 3D detail popover shown on hover/focus */
+.std-orb-detail {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  width: 250px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #fecdd3;
+  box-shadow:
+    0 20px 44px rgba(15, 23, 42, 0.18),
+    0 6px 16px rgba(225, 29, 72, 0.1);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px) scale(0.92);
+  transition: opacity 0.24s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.std-orb-detail::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-right: 1px solid #fecdd3;
+  border-bottom: 1px solid #fecdd3;
+  transform: translate(-50%, -6px) rotate(45deg);
+}
+
+.std-orb-item.detail-below .std-orb-detail {
+  bottom: auto;
+  top: calc(100% + 14px);
+  transform: translate(-50%, -8px) scale(0.92);
+}
+
+.std-orb-item.detail-below .std-orb-detail::after {
+  top: auto;
+  bottom: 100%;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid #fecdd3;
+  border-top: 1px solid #fecdd3;
+  transform: translate(-50%, 6px) rotate(45deg);
+}
+
+.std-orb-item:hover .std-orb-detail,
+.std-orb-item:focus-within .std-orb-detail {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.std-orb-detail-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #be123c;
+  margin-bottom: 5px;
+}
+
+.std-orb-detail-desc {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-heading);
+}
+
+@media (max-width: 720px) {
+  #standards-regulations {
+    min-height: 440px;
+  }
+  .std-orb-item {
+    width: 96px;
+    height: 96px;
+  }
+  .std-orb-code {
+    font-size: 11.5px;
+  }
+  .std-orb-detail {
+    width: 210px;
+  }
 }
 
 /* ==========================================================================
