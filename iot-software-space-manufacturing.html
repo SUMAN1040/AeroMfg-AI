@@ -155,11 +155,8 @@
     <!-- SECTION 1: ASSEMBLY WORK-IN-PROGRESS TRACKING SOFTWARE -->
     <section class="section-wrap" id="assembly-wip">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro text-center">
           <h2 class="section-heading-lg">Assembly Work-In-Progress Tracking Software</h2>
-          <p class="section-summary">
-            Continuous sub-assembly state monitoring, UWB floor trilateration, and automated gate transitions across aerospace integration hangars.
-          </p>
         </div>
 
         <!-- 2 Executive Narrative Cards -->
@@ -228,252 +225,296 @@
       </div>
     </section>
 
-    <!-- SECTION 2: DIGITAL THREAD AND COMPONENT GENEALOGY MAPPING -->
+    <!-- SECTIONS 2-4 COMBINED: 3D VERTICAL SCROLL-FLIP CARD DECK -->
     <section class="section-wrap alt-bg" id="component-genealogy">
       <div class="container">
-        <div class="section-intro">
-          <h2 class="section-heading-lg">Digital Thread and Component Genealogy Mapping</h2>
-          <p class="section-summary">
-            Cryptographic provenance, serialized part history, and bi-directional PLM/ERP configuration reconciliation.
-          </p>
-        </div>
+        <div class="scroll-flip-track" id="iotFlipTrack">
+          <div class="scroll-flip-stage">
 
-        <!-- 2 Executive Narrative Cards -->
-        <div class="text-two-col" style="margin-bottom: 32px;">
-          <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
-            <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
-              Immutable Touchpoint Tracking &amp; Material Cert Correlation
-            </h3>
-            <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
-              Mission assurance and regulatory compliance demand an unbroken digital thread throughout aerospace manufacturing. AeroMfg AI captures every touchpoint, thermal exposure, and inspection check. The platform binds manufacturing records, mill test reports (MTRs), and QA logs into a cryptographically searchable pedigree for every serialized component.
-            </p>
-          </article>
+            <!-- CARD 1: DIGITAL THREAD AND COMPONENT GENEALOGY MAPPING -->
+            <div class="scroll-flip-card is-active" data-flip-index="0">
+              <div class="section-intro text-center">
+                <h2 class="section-heading-lg">Digital Thread and Component Genealogy Mapping</h2>
+              </div>
 
-          <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
-            <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
-              Provenance Traceability &amp; PLM/ERP Design Reconciliation
-            </h3>
-            <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
-              Genealogy mapping enables systems engineers to trace component provenance back to raw material melts, accelerating root-cause analysis during environmental screening anomalies. Direct integration with PLM and ERP systems reconciles as-built configurations against approved engineering designs, guaranteeing full audit readiness for prime contractors and government space agencies.
-            </p>
-          </article>
-        </div>
+              <!-- 2 Executive Narrative Cards -->
+              <div class="text-two-col" style="margin-bottom: 32px;">
+                <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+                  <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
+                    Immutable Touchpoint Tracking &amp; Material Cert Correlation
+                  </h3>
+                  <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
+                    Mission assurance and regulatory compliance demand an unbroken digital thread throughout aerospace manufacturing. AeroMfg AI captures every touchpoint, thermal exposure, and inspection check. The platform binds manufacturing records, mill test reports (MTRs), and QA logs into a cryptographically searchable pedigree for every serialized component.
+                  </p>
+                </article>
 
-        <!-- 4 Technical Feature Cards -->
-        <div class="module-grid-4">
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+                  <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
+                    Provenance Traceability &amp; PLM/ERP Design Reconciliation
+                  </h3>
+                  <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
+                    Genealogy mapping enables systems engineers to trace component provenance back to raw material melts, accelerating root-cause analysis during environmental screening anomalies. Direct integration with PLM and ERP systems reconciles as-built configurations against approved engineering designs, guaranteeing full audit readiness for prime contractors and government space agencies.
+                  </p>
+                </article>
+              </div>
+
+              <!-- 4 Technical Feature Cards -->
+              <div class="module-grid-4">
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Cryptographic Merkle Tree Serialization</h3>
+                  <p class="module-card-text">
+                    Each component event, such as torque confirmation, laser alignment, or ultrasonic NDT scan, is cryptographically bound into an immutable Merkle tree structure.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Material Test Report (MTR) Linkage</h3>
+                  <p class="module-card-text">
+                    Direct digital binding linking titanium billet heats, carbon fiber pre-preg cure logs, and supplier raw certs to serialized aircraft sub-assembly records.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Rapid Root-Cause Quarantine Logic</h3>
+                  <p class="module-card-text">
+                    Instantly discovers all sibling assemblies sharing a quarantined lot number, vendor batch, or machine calibration run when an anomaly is identified.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <h3 class="module-card-title">PLM &amp; ERP As-Built Verification</h3>
+                  <p class="module-card-text">
+                    Continuous comparison between engineering EBOM in Siemens Teamcenter or PTC Windchill and actual shop floor MBOM executed in SAP S/4HANA.
+                  </p>
+                </article>
+              </div>
             </div>
-            <h3 class="module-card-title">Cryptographic Merkle Tree Serialization</h3>
-            <p class="module-card-text">
-              Each component event, such as torque confirmation, laser alignment, or ultrasonic NDT scan, is cryptographically bound into an immutable Merkle tree structure.
-            </p>
-          </article>
 
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <h3 class="module-card-title">Material Test Report (MTR) Linkage</h3>
-            <p class="module-card-text">
-              Direct digital binding linking titanium billet heats, carbon fiber pre-preg cure logs, and supplier raw certs to serialized aircraft sub-assembly records.
-            </p>
-          </article>
+            <!-- CARD 2: PRODUCTION FLOW SYNCHRONIZATION AND BOTTLENECK LOGIC -->
+            <div class="scroll-flip-card" id="production-synchronization" data-flip-index="1">
+              <div class="section-intro text-center">
+                <h2 class="section-heading-lg">Production Flow Synchronization and Bottleneck Logic</h2>
+              </div>
 
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <h3 class="module-card-title">Rapid Root-Cause Quarantine Logic</h3>
-            <p class="module-card-text">
-              Instantly discovers all sibling assemblies sharing a quarantined lot number, vendor batch, or machine calibration run when an anomaly is identified.
-            </p>
-          </article>
+              <!-- 2 Executive Narrative Cards -->
+              <div class="text-two-col" style="margin-bottom: 32px;">
+                <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+                  <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
+                    Predictive Bottleneck Modeling &amp; Environmental Test Cell Constraints
+                  </h3>
+                  <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
+                    Synchronizing material movement, technician availability, and test equipment readiness is vital for meeting aggressive launch windows. AeroMfg AI applies predictive analytics to detect emerging bottlenecks before schedules slip, modeling sub-assembly flows across TVAC chambers, anechoic test cells, and cleanroom bays.
+                  </p>
+                </article>
 
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+                  <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
+                    Dynamic Scheduling Reallocation &amp; Dependency Resolution
+                  </h3>
+                  <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
+                    Dynamic scheduling algorithms reallocate floor resources automatically when test holds or process variations occur. Aligning physical component movements with digital master schedules maximizes facility throughput, reduces transit dwell time, and verifies all technical prerequisites prior to critical integration steps.
+                  </p>
+                </article>
+              </div>
+
+              <!-- 4 Technical Feature Cards -->
+              <div class="module-grid-4">
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </div>
+                  <h3 class="module-card-title">TVAC &amp; Anechoic Chamber Scheduling</h3>
+                  <p class="module-card-text">
+                    Predicts vacuum chamber pumping, thermal soak times, and cryo-cool down intervals to schedule satellite hardware entries without idle technician dwell.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Technician Skill &amp; Clearance Matching</h3>
+                  <p class="module-card-text">
+                    Ensures specialized bonding, flight cabling, or torque operations are routed solely to technicians with active NASA 8739 and IPC J-STD certifications.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Staging Buffer Dynamic Sizing</h3>
+                  <p class="module-card-text">
+                    Calculates statistical safety buffers for long-lead flight items like beryllium mirrors and gyroscopes, preventing integration floor line stops.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Autonomous Mobile Robot (AMR) Kitting</h3>
+                  <p class="module-card-text">
+                    Coordinates automated cleanroom delivery vehicles transporting delicate space hardware kits and calibrated ground support equipment to active integration cells.
+                  </p>
+                </article>
+              </div>
             </div>
-            <h3 class="module-card-title">PLM &amp; ERP As-Built Verification</h3>
-            <p class="module-card-text">
-              Continuous comparison between engineering EBOM in Siemens Teamcenter or PTC Windchill and actual shop floor MBOM executed in SAP S/4HANA.
-            </p>
-          </article>
-        </div>
+
+            <!-- CARD 3: QUALITY ASSURANCE AND TRACEABILITY VERIFICATION ENGINES -->
+            <div class="scroll-flip-card" id="traceability-verification" data-flip-index="2">
+              <div class="section-intro text-center">
+                <h2 class="section-heading-lg">Quality Assurance and Traceability Verification Engines</h2>
+              </div>
+
+              <!-- 2 Executive Narrative Cards -->
+              <div class="text-two-col" style="margin-bottom: 32px;">
+                <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+                  <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
+                    Automated Protocol Validation &amp; AS9100 Cross-Checking
+                  </h3>
+                  <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
+                    Aerospace Quality Assurance requires rigorous verification of every assembly step. The AeroMfg AI traceability engine automates protocol checks, blocking task sign-offs unless all torque angles, CMM measurements, and inspection stamps pass. Rule-based engines flag deviations against AS9100 Rev D and ISO 9001 instantly.
+                  </p>
+                </article>
+
+                <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+                  <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
+                    Environmental Proof-of-Compliance &amp; Flight-Ready Dossiers
+                  </h3>
+                  <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
+                    Continuous monitoring correlates cleanroom particulate counts, humidity levels, and thermal gradients with asset records, proving hardware never breached certified limits. The software compiles tamper-evident flight-readiness dossiers automatically, accelerating mission review acceptance and freeing quality engineers from manual paperwork.
+                  </p>
+                </article>
+              </div>
+
+              <!-- 4 Technical Feature Cards -->
+              <div class="module-grid-4" style="margin-bottom: 32px;">
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Rule-Based AS9100 &amp; ISO 9001 Logic</h3>
+                  <p class="module-card-text">
+                    Automated gatekeeper requiring full compliance with AS9100 Rev D Section 8.5.2 before permitting physical movement to downstream assembly hangars.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Calibrated Smart Tooling Validation</h3>
+                  <p class="module-card-text">
+                    Transmits actual fastener torque angle signatures via Bluetooth Low Energy directly to the digital thread, blocking operations if tools exceed calibration limits.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                  </div>
+                  <h3 class="module-card-title">ISO Class 5 Cleanroom Environmental Dossiers</h3>
+                  <p class="module-card-text">
+                    Logs continuous particulate counts (0.5µm/5.0µm), relative humidity, and temperature data to guarantee optics remained protected from contamination.
+                  </p>
+                </article>
+
+                <article class="module-card">
+                  <div class="module-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  <h3 class="module-card-title">Mission Flight-Readiness Review (FRR)</h3>
+                  <p class="module-card-text">
+                    Generates cryptographic, tamper-evident quality release packages accepted by aerospace prime contractors, NASA, and defense review boards in minutes.
+                  </p>
+                </article>
+              </div>
+
+              <!-- Compliance Callout Banner -->
+              <div class="compliance-box">
+                <div class="compliance-box-head">
+                  <span>🛡 AS9100 Rev D Clause 8.5.2 &amp; FAA Part 21 Digital Record Retention Standards</span>
+                </div>
+                <p>
+                  AeroMfg AI traceability engines are architected to satisfy strict aerospace regulatory mandates including FAA Advisory Circular AC 21-43, EASA Part 21 Subpart G, and AS9100 Rev D digital recordkeeping regulations. Production records, sensor telemetry, and inspection signatures are preserved with WORM (Write Once, Read Many) integrity, eliminating non-conformance disputes and supporting permanent flight-readiness audits.
+                </p>
+              </div>
+            </div>
+
+          </div><!-- /.scroll-flip-stage -->
+        </div><!-- /.scroll-flip-track -->
       </div>
     </section>
 
-    <!-- SECTION 3: PRODUCTION FLOW SYNCHRONIZATION AND BOTTLENECK LOGIC -->
-    <section class="section-wrap" id="production-synchronization">
-      <div class="container">
-        <div class="section-intro">
-          <h2 class="section-heading-lg">Production Flow Synchronization and Bottleneck Logic</h2>
-          <p class="section-summary">
-            Predictive constraint modeling, dynamic bay re-allocation, and cleanroom resource optimization.
-          </p>
-        </div>
+    <script type="text/javascript">
+      (function () {
+        var track = document.getElementById('iotFlipTrack');
+        if (!track) return;
+        var cards = Array.prototype.slice.call(track.querySelectorAll('.scroll-flip-card'));
+        if (!cards.length) return;
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion || window.innerWidth <= 900) return;
 
-        <!-- 2 Executive Narrative Cards -->
-        <div class="text-two-col" style="margin-bottom: 32px;">
-          <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
-            <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
-              Predictive Bottleneck Modeling &amp; Environmental Test Cell Constraints
-            </h3>
-            <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
-              Synchronizing material movement, technician availability, and test equipment readiness is vital for meeting aggressive launch windows. AeroMfg AI applies predictive analytics to detect emerging bottlenecks before schedules slip, modeling sub-assembly flows across TVAC chambers, anechoic test cells, and cleanroom bays.
-            </p>
-          </article>
+        var activeIdx = 0;
 
-          <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
-            <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
-              Dynamic Scheduling Reallocation &amp; Dependency Resolution
-            </h3>
-            <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
-              Dynamic scheduling algorithms reallocate floor resources automatically when test holds or process variations occur. Aligning physical component movements with digital master schedules maximizes facility throughput, reduces transit dwell time, and verifies all technical prerequisites prior to critical integration steps.
-            </p>
-          </article>
-        </div>
+        function updateFlip() {
+          if (window.innerWidth <= 900) {
+            cards.forEach(function (c) {
+              c.style.transform = '';
+              c.style.opacity = '';
+              c.classList.add('is-active');
+            });
+            return;
+          }
+          var rect = track.getBoundingClientRect();
+          var scrollable = track.offsetHeight - window.innerHeight;
+          if (scrollable <= 0) return;
+          var progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+          var nextIdx = progress < 0.33 ? 0 : (progress < 0.67 ? 1 : 2);
 
-        <!-- 4 Technical Feature Cards -->
-        <div class="module-grid-4">
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3 class="module-card-title">TVAC &amp; Anechoic Chamber Scheduling</h3>
-            <p class="module-card-text">
-              Predicts vacuum chamber pumping, thermal soak times, and cryo-cool down intervals to schedule satellite hardware entries without idle technician dwell.
-            </p>
-          </article>
+          if (nextIdx !== activeIdx) {
+            activeIdx = nextIdx;
+          }
 
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="module-card-title">Technician Skill &amp; Clearance Matching</h3>
-            <p class="module-card-text">
-              Ensures specialized bonding, flight cabling, or torque operations are routed solely to technicians with active NASA 8739 and IPC J-STD certifications.
-            </p>
-          </article>
+          cards.forEach(function (card, idx) {
+            card.classList.toggle('is-active', idx === activeIdx);
+            if (idx < activeIdx) {
+              card.style.transform = 'rotateX(88deg) scale(0.95)';
+              card.style.opacity = '0';
+            } else if (idx > activeIdx) {
+              card.style.transform = 'rotateX(-88deg) scale(0.95)';
+              card.style.opacity = '0';
+            } else {
+              card.style.transform = 'rotateX(0deg) scale(1)';
+              card.style.opacity = '1';
+            }
+          });
+        }
 
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            </div>
-            <h3 class="module-card-title">Staging Buffer Dynamic Sizing</h3>
-            <p class="module-card-text">
-              Calculates statistical safety buffers for long-lead flight items like beryllium mirrors and gyroscopes, preventing integration floor line stops.
-            </p>
-          </article>
-
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <h3 class="module-card-title">Autonomous Mobile Robot (AMR) Kitting</h3>
-            <p class="module-card-text">
-              Coordinates automated cleanroom delivery vehicles transporting delicate space hardware kits and calibrated ground support equipment to active integration cells.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: QUALITY ASSURANCE AND TRACEABILITY VERIFICATION ENGINES -->
-    <section class="section-wrap alt-bg" id="traceability-verification">
-      <div class="container">
-        <div class="section-intro">
-          <h2 class="section-heading-lg">Quality Assurance and Traceability Verification Engines</h2>
-          <p class="section-summary">
-            Closed-loop compliance validation, automated non-conformance quarantine, and environmental exposure auditing.
-          </p>
-        </div>
-
-        <!-- 2 Executive Narrative Cards -->
-        <div class="text-two-col" style="margin-bottom: 32px;">
-          <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
-            <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
-              Automated Protocol Validation &amp; AS9100 Cross-Checking
-            </h3>
-            <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
-              Aerospace Quality Assurance requires rigorous verification of every assembly step. The AeroMfg AI traceability engine automates protocol checks, blocking task sign-offs unless all torque angles, CMM measurements, and inspection stamps pass. Rule-based engines flag deviations against AS9100 Rev D and ISO 9001 instantly.
-            </p>
-          </article>
-
-          <article style="background: #ffffff; padding: 26px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
-            <h3 style="font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px;">
-              Environmental Proof-of-Compliance &amp; Flight-Ready Dossiers
-            </h3>
-            <p style="font-size: 15px; line-height: 1.7; color: var(--text-body); margin: 0;">
-              Continuous monitoring correlates cleanroom particulate counts, humidity levels, and thermal gradients with asset records, proving hardware never breached certified limits. The software compiles tamper-evident flight-readiness dossiers automatically, accelerating mission review acceptance and freeing quality engineers from manual paperwork.
-            </p>
-          </article>
-        </div>
-
-        <!-- 4 Technical Feature Cards -->
-        <div class="module-grid-4" style="margin-bottom: 32px;">
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
-            </div>
-            <h3 class="module-card-title">Rule-Based AS9100 &amp; ISO 9001 Logic</h3>
-            <p class="module-card-text">
-              Automated gatekeeper requiring full compliance with AS9100 Rev D Section 8.5.2 before permitting physical movement to downstream assembly hangars.
-            </p>
-          </article>
-
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <h3 class="module-card-title">Calibrated Smart Tooling Validation</h3>
-            <p class="module-card-text">
-              Transmits actual fastener torque angle signatures via Bluetooth Low Energy directly to the digital thread, blocking operations if tools exceed calibration limits.
-            </p>
-          </article>
-
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-            </div>
-            <h3 class="module-card-title">ISO Class 5 Cleanroom Environmental Dossiers</h3>
-            <p class="module-card-text">
-              Logs continuous particulate counts (0.5µm/5.0µm), relative humidity, and temperature data to guarantee optics remained protected from contamination.
-            </p>
-          </article>
-
-          <article class="module-card">
-            <div class="module-card-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <h3 class="module-card-title">Mission Flight-Readiness Review (FRR)</h3>
-            <p class="module-card-text">
-              Generates cryptographic, tamper-evident quality release packages accepted by aerospace prime contractors, NASA, and defense review boards in minutes.
-            </p>
-          </article>
-        </div>
-
-        <!-- Compliance Callout Banner -->
-        <div class="compliance-box">
-          <div class="compliance-box-head">
-            <span>🛡 AS9100 Rev D Clause 8.5.2 &amp; FAA Part 21 Digital Record Retention Standards</span>
-          </div>
-          <p>
-            AeroMfg AI traceability engines are architected to satisfy strict aerospace regulatory mandates including FAA Advisory Circular AC 21-43, EASA Part 21 Subpart G, and AS9100 Rev D digital recordkeeping regulations. Production records, sensor telemetry, and inspection signatures are preserved with WORM (Write Once, Read Many) integrity, eliminating non-conformance disputes and supporting permanent flight-readiness audits.
-          </p>
-        </div>
-      </div>
-    </section>
+        window.addEventListener('scroll', updateFlip, { passive: true });
+        window.addEventListener('resize', updateFlip);
+        updateFlip();
+      })();
+    </script>
 
     <!-- SECTION 5: AEROSPACE MANUFACTURING PROCESS ORCHESTRATION -->
     <section class="section-wrap" id="process-orchestration">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro text-center">
           <h2 class="section-heading-lg">Aerospace Manufacturing Process Orchestration</h2>
-          <p class="section-summary">
-            Unified command architecture unifying robotic workcells, manual assembly benches, and enterprise systems.
-          </p>
         </div>
 
         <!-- 2 Executive Narrative Cards -->
@@ -545,11 +586,8 @@
     <!-- SECTION 6: APPLICATIONS FOR COMMERCIAL AIRCRAFT MANUFACTURING -->
     <section class="section-wrap" id="applications">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro text-center">
           <h2 class="section-heading-lg">Applications for Commercial Aircraft Manufacturing</h2>
-          <p class="section-summary">
-            Engineered for high-precision satellite integration facilities, launch vehicle assembly sites, and aerospace component fabrication shops.
-          </p>
         </div>
 
         <!-- Executive Narrative Card -->
@@ -560,7 +598,7 @@
         </article>
 
         <!-- 3 Detailed Operational Applications -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px;">
           <article class="module-card">
             <div class="module-card-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
@@ -612,269 +650,555 @@
     <!-- SECTION 7: IOT SOFTWARE CASE STUDIES (U.S. & CANADA) -->
     <section class="section-wrap alt-bg" id="case-studies">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro text-center">
           <h2 class="section-heading-lg">IoT Software Case Studies (U.S. &amp; Canada)</h2>
-          <p class="section-summary">
-            Quantifiable results achieved across satellite bus integration facilities, defense electronics staging bays, and component manufacturing floors.
-          </p>
         </div>
 
-        <div class="tech-spec-grid">
-          <!-- Case Study 1: Seattle, Washington -->
-          <div class="tech-spec-card">
-            <h3>
-              <span style="color: var(--brand-blue);">◈</span>
-              Digital Thread Genealogy: Seattle, Washington
-            </h3>
-            <div class="psr-item" style="margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
-              <strong style="color: var(--text-heading);">Operational Challenge:</strong> A space-systems developer in Seattle needed an immutable history of every structural fastener used in their launch vehicle, but their manual documentation process was error-prone and inefficient.
-            </div>
-            <div class="psr-item" style="margin-bottom: 14px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
-              <strong style="color: var(--text-heading);">AeroMfg AI Engineering Solution:</strong> Deployed the digital thread genealogy software to track every component ID from procurement through to final integration. Technicians utilize integrated RFID scanning coupled with digital product definitions, automatically logging technician credentials, calibrated torque tooling, and tension verification.
-            </div>
-            <div class="psr-item" style="background: var(--bg-subtle); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 13.5px; line-height: 1.55;">
-              <strong style="color: var(--brand-blue);">Verified Operational Results:</strong> Fastener-related non-conformance reports were eliminated entirely, and the time required to compile the final build dossier was reduced by 80%.
-            </div>
-            <div class="psr-item" style="margin-top: 10px; font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-              <strong style="color: var(--text-heading);">Strategic Takeaway:</strong> Automated digital capture of torque verification during flight assembly provides the only dependable safeguard for structural integrity.
-            </div>
+        <!-- CSS-only 3D Center-Stage Auto Carousel (3-card, 3s cycle, zero JS) -->
+        <div class="cs3d-stage" aria-label="Case study carousel">
+          <div class="cs3d-track">
+
+            <!-- Case Study 1: Seattle, Washington -->
+            <article class="cs3d-card cs3d-card-1">
+              <h3 class="cs3d-card-title">
+                <span style="color: var(--brand-blue);">◈</span>
+                Digital Thread Genealogy: Seattle, Washington
+              </h3>
+              <div class="psr-item" style="margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
+                <strong style="color: var(--text-heading);">Operational Challenge:</strong> A space-systems developer in Seattle needed an immutable history of every structural fastener used in their launch vehicle, but their manual documentation process was error-prone and inefficient.
+              </div>
+              <div class="psr-item" style="margin-bottom: 14px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
+                <strong style="color: var(--text-heading);">AeroMfg AI Engineering Solution:</strong> Deployed the digital thread genealogy software to track every component ID from procurement through to final integration. Technicians utilize integrated RFID scanning coupled with digital product definitions, automatically logging technician credentials, calibrated torque tooling, and tension verification.
+              </div>
+              <div class="psr-item cs3d-result-box">
+                <strong style="color: var(--brand-blue);">Verified Operational Results:</strong> Fastener-related non-conformance reports were eliminated entirely, and the time required to compile the final build dossier was reduced by 80%.
+              </div>
+              <div class="psr-item" style="margin-top: 10px; font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                <strong style="color: var(--text-heading);">Strategic Takeaway:</strong> Automated digital capture of torque verification during flight assembly provides the only dependable safeguard for structural integrity.
+              </div>
+            </article>
+
+            <!-- Case Study 2: Huntsville, Alabama -->
+            <article class="cs3d-card cs3d-card-2">
+              <h3 class="cs3d-card-title">
+                <span style="color: var(--brand-blue);">◈</span>
+                Aerospace Supply Chain Optimization: Huntsville, Alabama
+              </h3>
+              <div class="psr-item" style="margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
+                <strong style="color: var(--text-heading);">Operational Challenge:</strong> A defense contractor in Huntsville experienced supply chain bottlenecks caused by delayed shipments of radiation-hardened components from international manufacturing partners.
+              </div>
+              <div class="psr-item" style="margin-bottom: 14px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
+                <strong style="color: var(--text-heading);">AeroMfg AI Engineering Solution:</strong> Implemented end-to-end supply chain optimization software linking internal production schedules with remote telemetry nodes installed at supplier docks. The predictive AI engine forecasts delivery variances based on real-time transit telemetry, notifying integration teams early to adapt assembly staging plans.
+              </div>
+              <div class="psr-item cs3d-result-box">
+                <strong style="color: var(--brand-blue);">Verified Operational Results:</strong> Production stall-time due to material shortages decreased by 45%, significantly smoothing integration velocity.
+              </div>
+              <div class="psr-item" style="margin-top: 10px; font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                <strong style="color: var(--text-heading);">Strategic Takeaway:</strong> Continuous telemetry visibility into the Tier-2 supplier network is essential for high-velocity aerospace integration programs.
+              </div>
+            </article>
+
+            <!-- Case Study 3: Ottawa, Ontario -->
+            <article class="cs3d-card cs3d-card-3">
+              <h3 class="cs3d-card-title">
+                <span style="color: var(--brand-blue);">◈</span>
+                WIP Floor Visualization: Ottawa, Ontario, Canada
+              </h3>
+              <div class="psr-item" style="margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
+                <strong style="color: var(--text-heading);">Operational Challenge:</strong> A satellite manufacturer in Ottawa struggled to maintain accurate visibility of active assembly tasks across two manufacturing facilities, leading to scheduling conflicts and idle technician hours.
+              </div>
+              <div class="psr-item" style="margin-bottom: 14px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
+                <strong style="color: var(--text-heading);">AeroMfg AI Engineering Solution:</strong> Deployed the 3D WIP floor visualization platform across both facilities, configuring localized RFID gateways that dynamically update asset and personnel positions on interactive spatial maps. Real-time dashboards stream work order progression, technician task allocations, and tool calibration statuses.
+              </div>
+              <div class="psr-item cs3d-result-box">
+                <strong style="color: var(--brand-blue);">Verified Operational Results:</strong> Inter-facility coordination efficiency improved by 50%, and idle technician time was reduced by 35%.
+              </div>
+              <div class="psr-item" style="margin-top: 10px; font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                <strong style="color: var(--text-heading);">Strategic Takeaway:</strong> Synchronized spatial status management across distributed production campuses eliminates scheduling bottlenecks and guarantees launch delivery commitments.
+              </div>
+            </article>
+
+          </div><!-- /.cs3d-track -->
+
+          <!-- Dot indicators (purely decorative, animated via CSS) -->
+          <div class="cs3d-dots" aria-hidden="true">
+            <span class="cs3d-dot cs3d-dot-1"></span>
+            <span class="cs3d-dot cs3d-dot-2"></span>
+            <span class="cs3d-dot cs3d-dot-3"></span>
           </div>
 
-          <!-- Case Study 2: Huntsville, Alabama -->
-          <div class="tech-spec-card">
-            <h3>
-              <span style="color: var(--brand-blue);">◈</span>
-              Aerospace Supply Chain Optimization: Huntsville, Alabama
-            </h3>
-            <div class="psr-item" style="margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
-              <strong style="color: var(--text-heading);">Operational Challenge:</strong> A defense contractor in Huntsville experienced supply chain bottlenecks caused by delayed shipments of radiation-hardened components from international manufacturing partners.
-            </div>
-            <div class="psr-item" style="margin-bottom: 14px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
-              <strong style="color: var(--text-heading);">AeroMfg AI Engineering Solution:</strong> Implemented end-to-end supply chain optimization software linking internal production schedules with remote telemetry nodes installed at supplier docks. The predictive AI engine forecasts delivery variances based on real-time transit telemetry, notifying integration teams early to adapt assembly staging plans.
-            </div>
-            <div class="psr-item" style="background: var(--bg-subtle); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 13.5px; line-height: 1.55;">
-              <strong style="color: var(--brand-blue);">Verified Operational Results:</strong> Production stall-time due to material shortages decreased by 45%, significantly smoothing integration velocity.
-            </div>
-            <div class="psr-item" style="margin-top: 10px; font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-              <strong style="color: var(--text-heading);">Strategic Takeaway:</strong> Continuous telemetry visibility into the Tier-2 supplier network is essential for high-velocity aerospace integration programs.
-            </div>
-          </div>
-
-          <!-- Case Study 3: Ottawa, Ontario -->
-          <div class="tech-spec-card">
-            <h3>
-              <span style="color: var(--brand-blue);">◈</span>
-              WIP Floor Visualization: Ottawa, Ontario, Canada
-            </h3>
-            <div class="psr-item" style="margin-bottom: 12px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
-              <strong style="color: var(--text-heading);">Operational Challenge:</strong> A satellite manufacturer in Ottawa struggled to maintain accurate visibility of active assembly tasks across two manufacturing facilities, leading to scheduling conflicts and idle technician hours.
-            </div>
-            <div class="psr-item" style="margin-bottom: 14px; font-size: 14px; line-height: 1.6; color: var(--text-body);">
-              <strong style="color: var(--text-heading);">AeroMfg AI Engineering Solution:</strong> Deployed the 3D WIP floor visualization platform across both facilities, configuring localized RFID gateways that dynamically update asset and personnel positions on interactive spatial maps. Real-time dashboards stream work order progression, technician task allocations, and tool calibration statuses.
-            </div>
-            <div class="psr-item" style="background: var(--bg-subtle); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 13.5px; line-height: 1.55;">
-              <strong style="color: var(--brand-blue);">Verified Operational Results:</strong> Inter-facility coordination efficiency improved by 50%, and idle technician time was reduced by 35%.
-            </div>
-            <div class="psr-item" style="margin-top: 10px; font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-              <strong style="color: var(--text-heading);">Strategic Takeaway:</strong> Synchronized spatial status management across distributed production campuses eliminates scheduling bottlenecks and guarantees launch delivery commitments.
-            </div>
-          </div>
-        </div>
+        </div><!-- /.cs3d-stage -->
       </div>
     </section>
 
     <!-- SECTION 8: APPLICABLE STANDARDS AND REGULATIONS -->
     <section class="section-wrap" id="standards-regulations">
-      <div class="container">
-        <div class="section-intro">
+      <div class="container standards-headline-layer">
+        <div class="section-intro text-center">
           <h2 class="section-heading-lg">Applicable Standards and Regulations</h2>
-          <p class="section-summary">
-            Strict compliance frameworks governing quality management systems, digital thread security, radio frequency emissions, and defense data protection across aerospace software deployments.
-          </p>
-        </div>
-
-        <div class="standards-list-grid">
-          <div class="standard-item-box">
-            <span class="std-code">AS9100 Rev D</span>
-            <span class="std-name">Quality Management Systems for Aerospace, Space, and Defense Organizations</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">ISO 27001</span>
-            <span class="std-name">Information Security Management Systems &amp; Cryptographic Telemetry Enclaves</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">NIST SP 800-53</span>
-            <span class="std-name">Security &amp; Privacy Controls for Federal Information Systems &amp; Organizations</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">NIST SP 800-171</span>
-            <span class="std-name">Protecting Controlled Unclassified Information (CUI) in Nonfederal Systems</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">FCC Part 15</span>
-            <span class="std-name">Radio Frequency Devices Certification &amp; Cleanroom EMI Immunity Standards</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">ANSI/ESD S20.20</span>
-            <span class="std-name">Electrostatic Discharge (ESD) Protection for Flight Hardware Assemblies</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">ISED Canada RSS-Gen</span>
-            <span class="std-name">General Requirements for Compliance of Radio Apparatus in Canadian Operations</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">CSA Z1000</span>
-            <span class="std-name">Occupational Health and Safety Management Systems in Advanced Manufacturing</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">ITAR (22 CFR 120-130)</span>
-            <span class="std-name">International Traffic in Arms Regulations Compliance &amp; Defense Custody Controls</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">EAR (15 CFR 730-774)</span>
-            <span class="std-name">Export Administration Regulations Dual-Use Hardware Governance</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">ISO 14644-1</span>
-            <span class="std-name">Cleanrooms and Associated Controlled Environments (ISO Class 4 to Class 8)</span>
-          </div>
-
-          <div class="standard-item-box">
-            <span class="std-code">FAA AC 21-43</span>
-            <span class="std-name">Production Under Type Certificate Only &amp; Material Review Board Procedures</span>
-          </div>
         </div>
       </div>
+
+      <div class="standards-glass-tank" id="standardsGlassTank" aria-label="Interactive 3D compliance spheres container">
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">AS9100 Rev D</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">AS9100 Rev D</span>
+              <span class="std-orb-detail-desc">Quality Management Systems for Aerospace, Space, and Defense Organizations</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">ISO 27001</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">ISO 27001</span>
+              <span class="std-orb-detail-desc">Information Security Management Systems &amp; Cryptographic Telemetry Enclaves</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">NIST SP 800-53</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">NIST SP 800-53</span>
+              <span class="std-orb-detail-desc">Security &amp; Privacy Controls for Federal Information Systems &amp; Organizations</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">NIST SP 800-171</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">NIST SP 800-171</span>
+              <span class="std-orb-detail-desc">Protecting Controlled Unclassified Information (CUI) in Nonfederal Systems</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">FCC Part 15</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">FCC Part 15</span>
+              <span class="std-orb-detail-desc">Radio Frequency Devices Certification &amp; Cleanroom EMI Immunity Standards</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">ANSI/ESD S20.20</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">ANSI/ESD S20.20</span>
+              <span class="std-orb-detail-desc">Electrostatic Discharge (ESD) Protection for Flight Hardware Assemblies</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">ISED RSS-Gen</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">ISED Canada RSS-Gen</span>
+              <span class="std-orb-detail-desc">General Requirements for Compliance of Radio Apparatus in Canadian Operations</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">CSA Z1000</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">CSA Z1000</span>
+              <span class="std-orb-detail-desc">Occupational Health and Safety Management Systems in Advanced Manufacturing</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">ITAR 22 CFR</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">ITAR (22 CFR 120-130)</span>
+              <span class="std-orb-detail-desc">International Traffic in Arms Regulations Compliance &amp; Defense Custody Controls</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">EAR 15 CFR</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">EAR (15 CFR 730-774)</span>
+              <span class="std-orb-detail-desc">Export Administration Regulations Dual-Use Hardware Governance</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">ISO 14644-1</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">ISO 14644-1</span>
+              <span class="std-orb-detail-desc">Cleanrooms and Associated Controlled Environments (ISO Class 4 to Class 8)</span>
+            </div>
+          </div>
+
+          <div class="std-orb-item" tabindex="0">
+            <div class="std-orb-ball">
+              <span class="std-orb-code">FAA AC 21-43</span>
+            </div>
+            <div class="std-orb-detail" role="tooltip">
+              <span class="std-orb-detail-title">FAA AC 21-43</span>
+              <span class="std-orb-detail-desc">Production Under Type Certificate Only &amp; Material Review Board Procedures</span>
+            </div>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          (function () {
+            var tank = document.getElementById('standardsGlassTank');
+            if (!tank) return;
+            var items = Array.prototype.slice.call(tank.querySelectorAll('.std-orb-item'));
+            if (!items.length) return;
+
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var balls = [];
+            var tankW = tank.clientWidth || 1000;
+            var tankH = tank.clientHeight || 320;
+            var pad = 12;
+
+            function initLayout() {
+              tankW = tank.clientWidth || 1000;
+              tankH = tank.clientHeight || 320;
+              var cols = tankW < 640 ? 3 : 6;
+              var rows = Math.ceil(items.length / cols);
+              balls = items.map(function (el, i) {
+                var size = el.offsetWidth || 116;
+                var col = i % cols;
+                var row = Math.floor(i / cols);
+                var cellW = (tankW - pad * 2) / cols;
+                var cellH = (tankH - pad * 2) / rows;
+                var x = pad + col * cellW + (cellW - size) / 2;
+                var y = pad + row * cellH + (cellH - size) / 2;
+                x = Math.max(pad, Math.min(tankW - size - pad, x));
+                y = Math.max(pad, Math.min(tankH - size - pad, y));
+                var angle = (i * 1.37) + 0.5;
+                var speed = 1.3 + (i % 4) * 0.35;
+                el.style.transform = 'translate3d(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px, 0)';
+                return {
+                  el: el,
+                  x: x,
+                  y: y,
+                  vx: Math.cos(angle) * speed,
+                  vy: Math.sin(angle) * speed,
+                  r: size / 2,
+                  size: size,
+                  paused: false
+                };
+              });
+            }
+
+            items.forEach(function (el, idx) {
+              el.addEventListener('mouseenter', function () {
+                if (balls[idx]) {
+                  balls[idx].paused = true;
+                  if (balls[idx].y < 95) {
+                    el.classList.add('detail-below');
+                  } else {
+                    el.classList.remove('detail-below');
+                  }
+                }
+              });
+              el.addEventListener('mouseleave', function () {
+                if (balls[idx]) balls[idx].paused = false;
+              });
+              el.addEventListener('focus', function () {
+                if (balls[idx]) {
+                  balls[idx].paused = true;
+                  if (balls[idx].y < 95) {
+                    el.classList.add('detail-below');
+                  } else {
+                    el.classList.remove('detail-below');
+                  }
+                }
+              });
+              el.addEventListener('blur', function () {
+                if (balls[idx]) balls[idx].paused = false;
+              });
+            });
+
+            initLayout();
+            window.addEventListener('resize', initLayout);
+
+            if (reduceMotion) return;
+
+            function step() {
+              tankW = tank.clientWidth || tankW;
+              tankH = tank.clientHeight || tankH;
+
+              for (var i = 0; i < balls.length; i++) {
+                var b = balls[i];
+                if (b.paused) continue;
+
+                b.x += b.vx;
+                b.y += b.vy;
+
+                if (b.x <= pad) {
+                  b.x = pad;
+                  b.vx = Math.abs(b.vx);
+                } else if (b.x + b.size >= tankW - pad) {
+                  b.x = tankW - pad - b.size;
+                  b.vx = -Math.abs(b.vx);
+                }
+
+                if (b.y <= pad) {
+                  b.y = pad;
+                  b.vy = Math.abs(b.vy);
+                } else if (b.y + b.size >= tankH - pad) {
+                  b.y = tankH - pad - b.size;
+                  b.vy = -Math.abs(b.vy);
+                }
+              }
+
+              // Gentle elastic collisions between waterballs
+              for (var i = 0; i < balls.length; i++) {
+                for (var j = i + 1; j < balls.length; j++) {
+                  var a = balls[i];
+                  var c = balls[j];
+                  var dx = (c.x + c.r) - (a.x + a.r);
+                  var dy = (c.y + c.r) - (a.y + a.r);
+                  var dist = Math.sqrt(dx * dx + dy * dy);
+                  var minDist = a.r + c.r + 6;
+                  if (dist > 0 && dist < minDist) {
+                    var nx = dx / dist;
+                    var ny = dy / dist;
+                    var overlap = (minDist - dist) * 0.5;
+                    if (!a.paused) { a.x -= nx * overlap; a.y -= ny * overlap; }
+                    if (!c.paused) { c.x += nx * overlap; c.y += ny * overlap; }
+                    var dvx = a.vx - c.vx;
+                    var dvy = a.vy - c.vy;
+                    var dot = dvx * nx + dvy * ny;
+                    if (dot > 0) {
+                      if (!a.paused) { a.vx -= dot * nx; a.vy -= dot * ny; }
+                      if (!c.paused) { c.vx += dot * nx; c.vy += dot * ny; }
+                    }
+                  }
+                }
+              }
+
+              for (var k = 0; k < balls.length; k++) {
+                var bk = balls[k];
+                bk.el.style.transform = 'translate3d(' + bk.x.toFixed(1) + 'px, ' + bk.y.toFixed(1) + 'px, 0)';
+              }
+
+              window.requestAnimationFrame(step);
+            }
+
+            window.requestAnimationFrame(step);
+          })();
+        </script>
     </section>
 
     <!-- SECTION 9: TOP INDUSTRY PLAYERS SUPPORTED -->
     <section class="section-wrap alt-bg" id="industry-players">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro text-center">
           <h2 class="section-heading-lg">Top Industry Players Supported</h2>
-          <p class="section-summary">
-            Leading aerospace prime contractors, defense systems integrators, and commercial launch providers utilizing AeroMfg AI space manufacturing software architectures.
-          </p>
-        </div>
-
-        <div class="players-grid">
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Lockheed Martin Corporation</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Flight Systems &amp; Space Integration</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Northrop Grumman Corporation</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Tactical Space &amp; Launch Infrastructure</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">The Boeing Company</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Commercial Aviation &amp; Space Hardware</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Raytheon Technologies (RTX)</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Avionics, Radar &amp; Guidance Tracking</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">General Dynamics Corporation</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Ground Command Infrastructure &amp; GSE</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Ball Aerospace</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Precision Optics &amp; Remote Sensors</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Aerojet Rocketdyne</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Propulsion &amp; Kinetic Rocket Engines</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Honeywell Aerospace</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Flight Control Hardware &amp; IoT Sensors</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Thales Alenia Space</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Satellite Modules &amp; Telecom Systems</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">L3Harris Technologies</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Mission-Critical Aerospace Avionics</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">MDA Space</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Robotic Manipulators &amp; Satellite Buses</div>
-            </div>
-          </div>
-
-          <div class="player-card">
-            <div class="player-icon">◈</div>
-            <div>
-              <div class="player-name">Canadian Space Agency (CSA)</div>
-              <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 500;">Orbital Hardware &amp; Exploration Systems</div>
-            </div>
-          </div>
         </div>
       </div>
+
+      <!-- Full-width logo marquee (overflows container intentionally) -->
+      <div class="logo-marquee-wrap" id="logoMarqueeWrap" aria-label="Industry partners logo strip">
+        <!-- Primary group -->
+        <div class="logo-marquee-group" id="logoMarqueeGroup">
+
+          <!-- Lockheed Martin -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#002F6C"/>
+                <path d="M12 42L44 16L36 32L52 24L22 48L29 33L12 42Z" fill="#FFFFFF"/>
+                <path d="M36 14L38.5 21.5L46 22L39.5 26.5L41.5 34L35.5 29L29.5 33.5L32 26L26 21.5L33.5 21.5L36 14Z" fill="#60A5FA"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Lockheed Martin Corporation</span>
+          </div>
+
+          <!-- Northrop Grumman -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#003B71"/>
+                <polygon points="32,10 52,46 38,46 32,33 26,46 12,46" fill="#FFFFFF"/>
+                <polygon points="32,22 40,38 24,38" fill="#38BDF8"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Northrop Grumman Corporation</span>
+          </div>
+
+          <!-- Boeing -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#0039A6"/>
+                <circle cx="33" cy="33" r="14" stroke="#FFFFFF" stroke-width="3.2"/>
+                <ellipse cx="33" cy="33" rx="22" ry="8" transform="rotate(-24 33 33)" stroke="#93C5FD" stroke-width="2.6"/>
+                <path d="M14 44L49 18L42 30L50 32L14 44Z" fill="#FFFFFF"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">The Boeing Company</span>
+          </div>
+
+          <!-- Raytheon RTX -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#CE1126"/>
+                <text x="32" y="39" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="21" letter-spacing="1">RTX</text>
+                <rect x="12" y="45" width="40" height="3.5" rx="1.75" fill="#FFFFFF" opacity="0.9"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Raytheon Technologies (RTX)</span>
+          </div>
+
+          <!-- General Dynamics -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#003865"/>
+                <path d="M30 16C20 16 13 23 13 32C13 41 20 48 30 48H35V31H25V36H30V42C24 42 19 38 19 32C19 26 24 22 30 22H35V16H30Z" fill="#FFFFFF"/>
+                <path d="M38 16V48H43C50 48 54 42 54 32C54 22 50 16 43 16H38ZM43 22C46.5 22 48.5 25.5 48.5 32C48.5 38.5 46.5 42 43 42V22Z" fill="#60A5FA"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">General Dynamics Corporation</span>
+          </div>
+
+          <!-- Ball Aerospace -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#005EB8"/>
+                <ellipse cx="32" cy="32" rx="22" ry="15" stroke="#FFFFFF" stroke-width="2.5"/>
+                <text x="32" y="38" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="20">Ball</text>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Ball Aerospace</span>
+          </div>
+
+          <!-- Aerojet Rocketdyne -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#991B1B"/>
+                <path d="M32 11L47 46H38L32 31L26 46H17L32 11Z" fill="#FFFFFF"/>
+                <path d="M22 47C27 42 37 42 42 47L32 54L22 47Z" fill="#FBBF24"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Aerojet Rocketdyne</span>
+          </div>
+
+          <!-- Honeywell -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#EE3124"/>
+                <path d="M17 15H26V28H38V15H47V49H38V35H26V49H17V15Z" fill="#FFFFFF"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Honeywell Aerospace</span>
+          </div>
+
+          <!-- Thales Alenia Space -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#1E293B"/>
+                <path d="M14 22H50V29H36V48H28V29H14V22Z" fill="#FFFFFF"/>
+                <circle cx="46" cy="42" r="5" fill="#38BDF8"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Thales Alenia Space</span>
+          </div>
+
+          <!-- L3Harris -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#002D72"/>
+                <path d="M14 17H22V40H34V47H14V17Z" fill="#FFFFFF"/>
+                <path d="M32 17L50 32L32 47V37L40 32L32 27V17Z" fill="#EF4444"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">L3Harris Technologies</span>
+          </div>
+
+          <!-- MDA Space -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#0F172A"/>
+                <path d="M12 45V19H20L32 34L44 19H52V45H44V30L32 44L20 30V45H12Z" fill="#FFFFFF"/>
+                <circle cx="32" cy="14" r="3.5" fill="#38BDF8"/>
+              </svg>
+            </span>
+            <span class="logo-pill-name">MDA Space</span>
+          </div>
+
+          <!-- Canadian Space Agency -->
+          <div class="logo-pill">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="64" height="64" rx="14" fill="#B91C1C"/>
+                <circle cx="32" cy="32" r="18" stroke="#FFFFFF" stroke-width="2.5"/>
+                <text x="32" y="37" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="14" letter-spacing="0.8">CSA</text>
+              </svg>
+            </span>
+            <span class="logo-pill-name">Canadian Space Agency (CSA)</span>
+          </div>
+
+        </div><!-- /#logoMarqueeGroup (duplicated by JS for seamless loop) -->
+      </div><!-- /.logo-marquee-wrap -->
+
+      <!-- Scroll-direction detection: reverses marquee when scrolling up -->
+      <script type="text/javascript">
+        (function () {
+          var wrap = document.getElementById('logoMarqueeWrap');
+          var lastY = window.scrollY;
+          function onScroll() {
+            var y = window.scrollY;
+            if (y < lastY) {
+              wrap.classList.add('scroll-reverse');
+            } else {
+              wrap.classList.remove('scroll-reverse');
+            }
+            lastY = y;
+          }
+          window.addEventListener('scroll', onScroll, { passive: true });
+
+          // Duplicate the group for seamless infinite loop
+          var grp = document.getElementById('logoMarqueeGroup');
+          if (grp) {
+            var clone = grp.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            clone.removeAttribute('id');
+            wrap.appendChild(clone);
+          }
+        })();
+      </script>
     </section>
 
     <!-- SECTION 10: ENTERPRISE EXPERIENCE AND TECHNICAL AUTHORITY -->
     <section class="section-wrap" id="experience-authority">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro text-center">
           <h2 class="section-heading-lg">Enterprise Experience and Technical Authority</h2>
-          <p class="section-summary">
-            Two decades of deep domain heritage in industrial IoT, supporting the world’s most demanding aerospace engineering programs.
-          </p>
         </div>
 
         <div class="about-layout">

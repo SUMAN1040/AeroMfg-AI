@@ -69,6 +69,7 @@
 html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
+  overflow-x: clip;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -84,6 +85,7 @@ body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.65;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-width: none;
@@ -1778,7 +1780,7 @@ button, input, select, textarea {
 
 .module-grid-auto {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 28px;
 }
 
@@ -5878,6 +5880,71 @@ button, input, select, textarea {
   min-height: 230vh;
 }
 
+.scroll-flip-track.flip-2 {
+  min-height: 175vh;
+}
+
+.scroll-flip-track.flip-4 {
+  min-height: 300vh;
+}
+
+/* Horizontal left-to-right 6-card marquee inside flip cards */
+.spec-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0 28px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+.spec-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: specScrollLTR 38s linear infinite;
+}
+
+.spec-marquee-wrap:hover .spec-marquee-track {
+  animation-play-state: paused;
+}
+
+.spec-marquee-group {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+  flex-shrink: 0;
+}
+
+.spec-marquee-group .tech-spec-card {
+  width: 360px;
+  flex-shrink: 0;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease, border-color 0.25s ease;
+}
+
+.spec-marquee-group .tech-spec-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: var(--brand-blue-border);
+  box-shadow: 0 20px 44px rgba(225, 29, 72, 0.14), 0 8px 20px rgba(15, 23, 42, 0.08);
+  z-index: 4;
+}
+
+@keyframes specScrollLTR {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@media (max-width: 720px) {
+  .spec-marquee-group .tech-spec-card {
+    width: 290px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spec-marquee-track {
+    animation: none;
+  }
+}
+
 .scroll-flip-stage {
   position: sticky;
   top: 0;
@@ -5885,7 +5952,7 @@ button, input, select, textarea {
   padding-top: 64px;
   perspective: 1800px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   align-content: center;
 }
@@ -5893,6 +5960,8 @@ button, input, select, textarea {
 .scroll-flip-card {
   grid-area: 1 / 1;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -5936,11 +6005,15 @@ button, input, select, textarea {
 }
 
 @media (max-width: 900px) {
-  .scroll-flip-track {
+  .scroll-flip-track,
+  .scroll-flip-track.flip-2,
+  .scroll-flip-track.flip-4 {
     min-height: auto;
   }
   .scroll-flip-stage {
     position: static;
+    min-height: auto;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -5950,7 +6023,7 @@ button, input, select, textarea {
     opacity: 1 !important;
     transform: none !important;
     pointer-events: auto !important;
-    padding: 24px 20px;
+    padding: 0;
   }
 }
 
@@ -5963,6 +6036,8 @@ button, input, select, textarea {
   min-height: 360px;
   padding: 56px 0;
   background: #ffffff;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .standards-headline-layer {
@@ -7031,4 +7106,145 @@ button, input, select, textarea {
   align-self: flex-start;
   margin-top: 3px;
   border: 1px solid #dcfce7;
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE POLISH (ALL DEVICES: DESKTOP, TABLET, MOBILE)
+   ========================================================================== */
+
+img, video, canvas, iframe {
+  max-width: 100%;
+}
+
+.hero-layout > *,
+.text-two-col > *,
+.module-grid-4 > *,
+.module-grid-3 > *,
+.module-grid-2 > *,
+.module-grid-6 > *,
+.players-grid > *,
+.about-layout > *,
+.footer-grid-layout > * {
+  min-width: 0;
+}
+
+.hero-actions,
+.cta-group {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1080px) {
+  .module-grid-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .players-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-layout,
+  .contact-layout,
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-wrap {
+    padding: 52px 0;
+  }
+  .section-intro {
+    margin-bottom: 28px;
+  }
+  .section-heading-lg {
+    font-size: 1.75rem;
+  }
+  .section-summary {
+    font-size: 15.5px;
+  }
+  .text-two-col {
+    font-size: 15.5px;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .module-grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+  .module-card {
+    padding: 20px;
+  }
+  .module-card-title {
+    font-size: 1.15rem;
+    min-height: auto;
+  }
+  .module-card-text {
+    font-size: 14.5px;
+  }
+  .logo-marquee-wrap {
+    padding: 20px 0 28px;
+  }
+  .logo-marquee-group {
+    gap: 18px;
+    padding-right: 18px;
+  }
+  .logo-pill {
+    min-height: 76px;
+    padding: 10px 22px 10px 12px;
+    gap: 14px;
+  }
+  .logo-mark,
+  .logo-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+  }
+  .logo-pill-name {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+  .section-wrap {
+    padding: 40px 0;
+  }
+  .hero-headline {
+    font-size: 1.8rem;
+  }
+  .section-heading-lg {
+    font-size: 1.5rem;
+  }
+  .spec-strip,
+  .module-grid-6 {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .std-orb-detail {
+    width: 185px;
+    padding: 10px 12px;
+  }
+  .std-orb-detail-desc {
+    font-size: 12px;
+  }
+  #standards-regulations {
+    min-height: 460px;
+    padding: 36px 0;
+  }
+  .std-orb-item {
+    width: 84px;
+    height: 84px;
+  }
+  .std-orb-code {
+    font-size: 10.5px;
+  }
+  .spec-marquee-group .tech-spec-card {
+    width: min(270px, 78vw);
+    padding: 18px;
+  }
 }
